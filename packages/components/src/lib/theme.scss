@@ -1,0 +1,52 @@
+html {
+  --color-background: #e6f4ea;
+  --color-surface: #ffffff;
+  --color-border: #cfe3d1;
+
+  --color-text: #1c1c1c;
+  --color-text-subtle: #5a5a5a;
+
+  --color-accent: #5bbf91;
+  --color-accent-hover: #3a8f6b;
+  --color-accent-text: #ffffff;
+
+  --color-background-modal: rgba(0, 0, 0, 0.4);
+
+  --color-background-image: #ffffff;
+
+  --color-success: #6fcf97;
+  --color-error: #f98080;
+
+  @mixin dark-mode {
+    --color-background: #111c17;
+    --color-surface: #1b2a24;
+    --color-border: #3a4a42;
+
+    --color-text: #f1f1f1;
+    --color-text-subtle: #bbbbbb;
+
+    --color-accent: #6fd8a5;
+    --color-accent-hover: #4db688;
+    --color-accent-text: #0f2b20;
+
+    --color-background-modal: rgba(0, 0, 0, 0.6);
+
+    --color-background-image: #ffffff;
+
+    --color-success: #81dba8;
+    --color-error: #f88c8c;
+
+    --color-disabled-bg: #2e3d38;
+    --color-disabled-text: #777777;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:not(:has(#settings[data-theme='light'])) {
+      @include dark-mode;
+    }
+  }
+
+  &:has(#settings[data-theme='dark']) {
+    @include dark-mode;
+  }
+}

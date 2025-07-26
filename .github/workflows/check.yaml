@@ -1,0 +1,50 @@
+name: check
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/workflows/setup
+
+      - run: pnpm run check
+
+  playwright:
+    # TODO: Disabled once
+    if: false
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.0-jammy
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        target: ['components', 'reader', 'writer']
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/workflows/setup
+
+      - uses: ./.github/workflows/setup-snapshots
+        with:
+          target: ${{ matrix.target }}
+
+      - run: pnpm run playwright
+        working-directory: ./packages/${{ matrix.target }}
+        env:
+          HOME: /root

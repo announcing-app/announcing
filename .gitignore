@@ -1,0 +1,15 @@
+node_modules
+dist
+.svelte-kit
+.trigger
+coverage
+test-results
+playwright-report
+.wrangler
+*.local
+*.test
+wrangler.*.jsonc
+.wrangler.env.*
+.dev.vars
+
+packages/db-local

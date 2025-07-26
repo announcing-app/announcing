@@ -1,0 +1,19 @@
+{
+  "name": "@announcing/i18n",
+  "private": true,
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "gen-messages": "tsx src/genMessages.ts && prettier --write src/i18n/*/index.ts",
+    "build": "pnpm run gen-messages && typesafe-i18n --no-watch && tsc -p tsconfig.build.json"
+  },
+  "devDependencies": {
+    "tsx": "catalog:",
+    "typesafe-i18n": "catalog:"
+  }
+}

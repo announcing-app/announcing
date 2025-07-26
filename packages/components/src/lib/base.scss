@@ -1,0 +1,19 @@
+@use './theme.scss';
+@use './reset.scss';
+@use './splash.scss';
+
+html {
+  color: var(--color-text);
+  background-color: var(--color-background);
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  height: 100dvh;
+}
+
+body {
+  min-height: 100dvh;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}

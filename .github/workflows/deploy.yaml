@@ -1,0 +1,30 @@
+name: deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: live
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/workflows/setup
+
+      - run: echo ${VALUES_JSON} | jq -r 'to_entries | map("\(.key)=\(.value)") | join("\n")' >> ${GITHUB_ENV}
+        env:
+          VALUES_JSON: ${{ vars.VALUES_JSON }}
+
+      - run: |
+          pnpm -r run build
+          pnpm -r run genWranglerJsonc
+
+      - run: |
+          pnpm -r run migrate:remote
+          pnpm -r run deploy
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}

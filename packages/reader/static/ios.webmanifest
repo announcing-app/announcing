@@ -1,0 +1,19 @@
+{
+  "name": "Announcing",
+  "short_name": "Announcing",
+  "start_url": "/ios/notifications",
+  "scope": "/ios",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/logo_192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo_512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

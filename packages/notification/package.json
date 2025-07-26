@@ -1,0 +1,38 @@
+{
+  "name": "@announcing/notification",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "genWranglerJsonc": "jiti genWranglerJsonc.ts",
+    "dev:workers": "wrangler dev -c wrangler.local.jsonc --persist-to ../db-local",
+    "test": "vitest run",
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -w -p tsconfig.build.json",
+    "generate": "drizzle-kit generate",
+    "migrate:local": "wrangler d1 migrations apply D1_NOTIFICATION  -c wrangler.local.jsonc --local --persist-to ../db-local",
+    "migrate:remote": "wrangler d1 migrations apply D1_NOTIFICATION  -c wrangler.remote.jsonc --remote",
+    "deploy": "wrangler deploy -c wrangler.remote.jsonc",
+    "deploy:preview": "wrangler versions upload -c wrangler.remote.jsonc"
+  },
+  "devDependencies": {
+    "@announcing/cloudflare-support": "workspace:*",
+    "@cloudflare/workers-types": "catalog:",
+    "drizzle-kit": "catalog:",
+    "drizzle-orm": "catalog:",
+    "fcm-cloudflare-workers": "catalog:",
+    "miniflare": "catalog:",
+    "valibot": "catalog:",
+    "vitest": "catalog:",
+    "wrangler": "catalog:"
+  }
+}

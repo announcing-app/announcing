@@ -1,0 +1,284 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "b87fbff0-871c-45f4-8ae6-28d442f6c5a0",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "announcements": {
+      "name": "announcements",
+      "columns": {
+        "channelID": {
+          "name": "channelID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "userID": {
+          "name": "userID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "announcementID": {
+          "name": "announcementID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "headerImage": {
+          "name": "headerImage",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "body": {
+          "name": "body",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "images": {
+          "name": "images",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "announcements_channelID_channels_channelID_fk": {
+          "name": "announcements_channelID_channels_channelID_fk",
+          "tableFrom": "announcements",
+          "tableTo": "channels",
+          "columnsFrom": [
+            "channelID"
+          ],
+          "columnsTo": [
+            "channelID"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "announcements_channelID_announcementID_pk": {
+          "columns": [
+            "channelID",
+            "announcementID"
+          ],
+          "name": "announcements_channelID_announcementID_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "channelID": {
+          "name": "channelID",
+          "value": "octet_length(\"announcements\".\"channelID\") BETWEEN 1 AND 8"
+        },
+        "userID": {
+          "name": "userID",
+          "value": "octet_length(\"announcements\".\"userID\") BETWEEN 1 AND 256"
+        },
+        "announcementID": {
+          "name": "announcementID",
+          "value": "octet_length(\"announcements\".\"announcementID\") BETWEEN 1 AND 10"
+        },
+        "headerImage": {
+          "name": "headerImage",
+          "value": "\"announcements\".\"headerImage\" IS NULL OR octet_length(\"announcements\".\"headerImage\") <= 100"
+        },
+        "title": {
+          "name": "title",
+          "value": "\"announcements\".\"title\" IS NULL OR octet_length(\"announcements\".\"title\") <= 200"
+        },
+        "body": {
+          "name": "body",
+          "value": "octet_length(\"announcements\".\"body\") BETWEEN 1 AND 2000"
+        },
+        "images": {
+          "name": "images",
+          "value": "\"announcements\".\"images\" IS NULL OR json_type(\"announcements\".\"images\") = 'array'"
+        }
+      }
+    },
+    "channels": {
+      "name": "channels",
+      "columns": {
+        "channelID": {
+          "name": "channelID",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "desc": {
+          "name": "desc",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "icon": {
+          "name": "icon",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "announcementIDs": {
+          "name": "announcementIDs",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "updatedAt": {
+          "name": "updatedAt",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "channelID": {
+          "name": "channelID",
+          "value": "octet_length(\"channels\".\"channelID\") BETWEEN 1 AND 8"
+        },
+        "name": {
+          "name": "name",
+          "value": "octet_length(\"channels\".\"name\") BETWEEN 1 AND 150"
+        },
+        "desc": {
+          "name": "desc",
+          "value": "\"channels\".\"desc\" IS NULL OR octet_length(\"channels\".\"desc\") <= 1000"
+        },
+        "icon": {
+          "name": "icon",
+          "value": "\"channels\".\"icon\" IS NULL OR octet_length(\"channels\".\"icon\") <= 1000000"
+        },
+        "announcementIDs": {
+          "name": "announcementIDs",
+          "value": "\"channels\".\"announcementIDs\" IS NULL OR json_type(\"channels\".\"announcementIDs\") = 'array'"
+        }
+      }
+    },
+    "owners": {
+      "name": "owners",
+      "columns": {
+        "channelID": {
+          "name": "channelID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "userID": {
+          "name": "userID",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "createdAt": {
+          "name": "createdAt",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "owners_channelID_channels_channelID_fk": {
+          "name": "owners_channelID_channels_channelID_fk",
+          "tableFrom": "owners",
+          "tableTo": "channels",
+          "columnsFrom": [
+            "channelID"
+          ],
+          "columnsTo": [
+            "channelID"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "owners_channelID_userID_pk": {
+          "columns": [
+            "channelID",
+            "userID"
+          ],
+          "name": "owners_channelID_userID_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "channelID": {
+          "name": "channelID",
+          "value": "octet_length(\"owners\".\"channelID\") BETWEEN 1 AND 8"
+        },
+        "userID": {
+          "name": "userID",
+          "value": "octet_length(\"owners\".\"userID\") BETWEEN 1 AND 256"
+        }
+      }
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

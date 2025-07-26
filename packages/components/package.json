@@ -1,0 +1,138 @@
+{
+  "name": "@announcing/components",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite dev --port 5173",
+    "build": "vite build && pnpm run package",
+    "preview": "vite preview",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "package:watch": "svelte-package -w",
+    "prepublishOnly": "pnpm run package",
+    "sync": "svelte-kit sync",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "playwright": "echo TODO: refactor playwright tests",
+    "typesafe-i18n": "typesafe-i18n"
+  },
+  "type": "module",
+  "exports": {
+    "./base.scss": "./dist/base.scss",
+    "./settings.server": {
+      "types": "./dist/utils/settings.server.d.ts",
+      "import": "./dist/utils/settings.server.js"
+    },
+    "./snapshotContext": {
+      "types": "./dist/utils/snapshotContext.d.ts",
+      "import": "./dist/utils/snapshotContext.js"
+    },
+    "./actions/back": {
+      "types": "./dist/actions/back.d.ts",
+      "import": "./dist/actions/back.js"
+    },
+    "./icons": {
+      "types": "./dist/icons/index.d.ts",
+      "import": "./dist/icons/index.js"
+    },
+    "./AnnouncementView.svelte": {
+      "types": "./dist/parts/AnnouncementView/AnnouncementView.svelte.d.ts",
+      "svelte": "./dist/parts/AnnouncementView/AnnouncementView.svelte"
+    },
+    "./ChannelView.svelte": {
+      "types": "./dist/parts/ChannelView/ChannelView.svelte.d.ts",
+      "svelte": "./dist/parts/ChannelView/ChannelView.svelte"
+    },
+    "./ConfirmModal.svelte": {
+      "types": "./dist/parts/ConfirmModal/ConfirmModal.svelte.d.ts",
+      "svelte": "./dist/parts/ConfirmModal/ConfirmModal.svelte"
+    },
+    "./CopyModal.svelte": {
+      "types": "./dist/parts/CopyModal/CopyModal.svelte.d.ts",
+      "svelte": "./dist/parts/CopyModal/CopyModal.svelte"
+    },
+    "./SettingsModal.svelte": {
+      "types": "./dist/parts/SettingsModal/SettingsModal.svelte.d.ts",
+      "svelte": "./dist/parts/SettingsModal/SettingsModal.svelte"
+    },
+    "./RootLayout.svelte": {
+      "types": "./dist/parts/RootLayout/RootLayout.svelte.d.ts",
+      "svelte": "./dist/parts/RootLayout/RootLayout.svelte"
+    },
+    "./Toolbar.svelte": {
+      "types": "./dist/parts/Toolbar/Toolbar.svelte.d.ts",
+      "svelte": "./dist/parts/Toolbar/Toolbar.svelte"
+    },
+    "./FileInput.svelte": {
+      "types": "./dist/atoms/FileInput.svelte.d.ts",
+      "svelte": "./dist/atoms/FileInput.svelte"
+    },
+    "./Input.svelte": {
+      "types": "./dist/atoms/Input.svelte.d.ts",
+      "svelte": "./dist/atoms/Input.svelte"
+    },
+    "./Loading.svelte": {
+      "types": "./dist/atoms/Loading.svelte.d.ts",
+      "svelte": "./dist/atoms/Loading.svelte"
+    },
+    "./Logo.svelte": {
+      "types": "./dist/atoms/Logo.svelte.d.ts",
+      "svelte": "./dist/atoms/Logo.svelte"
+    },
+    "./Modal.svelte": {
+      "types": "./dist/atoms/Modal.svelte.d.ts",
+      "svelte": "./dist/atoms/Modal.svelte"
+    },
+    "./Navigating.svelte": {
+      "types": "./dist/atoms/Navigating.svelte.d.ts",
+      "svelte": "./dist/atoms/Navigating.svelte"
+    },
+    "./ResizeObserver.svelte": {
+      "types": "./dist/atoms/ResizeObserver.svelte.d.ts",
+      "svelte": "./dist/atoms/ResizeObserver.svelte"
+    },
+    "./Spinner.svelte": {
+      "types": "./dist/atoms/Spinner.svelte.d.ts",
+      "svelte": "./dist/atoms/Spinner.svelte"
+    },
+    "./TextArea.svelte": {
+      "types": "./dist/atoms/TextArea.svelte.d.ts",
+      "svelte": "./dist/atoms/TextArea.svelte"
+    },
+    "./VirtualScrollList.svelte": {
+      "types": "./dist/atoms/VirtualScrollList.svelte.d.ts",
+      "svelte": "./dist/atoms/VirtualScrollList.svelte"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "peerDependencies": {
+    "@sveltejs/kit": "2",
+    "svelte": "5"
+  },
+  "devDependencies": {
+    "@announcing/db": "workspace:^",
+    "@announcing/i18n": "workspace:^",
+    "@faker-js/faker": "catalog:",
+    "@playwright/test": "catalog:",
+    "@sveltejs/kit": "catalog:",
+    "@sveltejs/package": "catalog:",
+    "@sveltejs/vite-plugin-svelte": "catalog:",
+    "@types/autosize": "catalog:",
+    "@types/image-blob-reduce": "catalog:",
+    "@types/js-cookie": "catalog:",
+    "autosize": "catalog:",
+    "date-fns": "catalog:",
+    "image-blob-reduce": "catalog:",
+    "js-cookie": "catalog:",
+    "linkify-html": "catalog:",
+    "publint": "catalog:",
+    "sass": "catalog:",
+    "svelte": "catalog:",
+    "svelte-check": "catalog:",
+    "the-new-css-reset": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:"
+  }
+}

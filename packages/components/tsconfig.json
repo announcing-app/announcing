@@ -1,0 +1,4 @@
+{
+  "extends": ["../../tsconfig.json", "./.svelte-kit/tsconfig.json"],
+  "files": ["playwright.config.ts"]
+}

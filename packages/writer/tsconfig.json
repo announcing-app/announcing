@@ -1,0 +1,7 @@
+{
+  "extends": ["../../tsconfig.json", "./.svelte-kit/tsconfig.json"],
+  "files": ["playwright.config.ts", "src/service-worker.ts", "genWranglerJsonc.ts"],
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types"]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "@announcing/cloudflare-support",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./wranglerEnv": {
+      "types": "./dist/wranglerEnv.d.ts",
+      "import": "./dist/wranglerEnv.js"
+    },
+    "./local": {
+      "types": "./dist/local.d.ts",
+      "import": "./dist/local.js"
+    },
+    "./localBindings": {
+      "types": "./dist/localBindings.d.ts",
+      "import": "./dist/localBindings.js"
+    },
+    "./remoteBindings": {
+      "types": "./dist/remoteBindings.d.ts",
+      "import": "./dist/remoteBindings.js"
+    },
+    "./vitePlugin": {
+      "types": "./dist/vitePlugin.d.ts",
+      "import": "./dist/vitePlugin.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "build:watch": "tsc -w -p tsconfig.build.json",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "catalog:",
+    "dotenv": "catalog:",
+    "miniflare": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "wrangler": "catalog:"
+  }
+}

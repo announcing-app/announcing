@@ -1,0 +1,83 @@
+name: update-snapshots
+
+on:
+  workflow_dispatch:
+    inputs:
+      components:
+        type: boolean
+        default: false
+      reader:
+        type: boolean
+        default: false
+      writer:
+        type: boolean
+        default: false
+
+jobs:
+  # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/using-a-matrix-for-your-jobs#example-using-an-output-to-define-two-matrices
+  define-matrix:
+    runs-on: ubuntu-latest
+    outputs:
+      targets: ${{ steps.targets.outputs.targets }}
+    steps:
+      - id: targets
+        run: |
+          A=()
+
+          if [ "${{ github.event.inputs.components }}" = 'true' ]; then
+            A+=('"components"')
+          fi
+
+          if [ "${{ github.event.inputs.reader }}" = 'true' ]; then
+            A+=('"reader"')
+          fi
+
+          if [ "${{ github.event.inputs.writer }}" = 'true' ]; then
+            A+=('"writer"')
+          fi
+
+          echo "targets=[$(IFS=,; echo "${A[*]}")]" >> "$GITHUB_OUTPUT"
+
+  update-snapshorts:
+    needs: define-matrix
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.46.0-jammy
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        target: ${{ fromJson(needs.define-matrix.outputs.targets) }}
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/workflows/setup-snapshots
+        with:
+          target: ${{ matrix.target }}
+
+      - run: |
+          set -x
+
+          pnpm run playwright --update-snapshots
+
+          git config --global --add safe.directory "${GITHUB_WORKSPACE}"
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git switch -c '${{  github.ref_name }}-update-snapshots-${{ matrix.target }}'
+          git add .
+          git commit -m 'Update snapshots for ${{ matrix.target }}'
+          git push -f origin '${{  github.ref_name }}-update-snapshots-${{ matrix.target }}'
+
+          git switch ${{  github.ref_name }}
+          pnpm run playwright || true
+        working-directory: './packages/${{ matrix.target }}'
+        env:
+          HOME: /root
+        shell: bash
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.target }}
+          path: packages/${{ matrix.target }}/playwright-report

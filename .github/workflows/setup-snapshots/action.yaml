@@ -1,0 +1,27 @@
+inputs:
+  target:
+    required: true
+
+runs:
+  using: 'composite'
+
+  steps:
+    - uses: ./.github/workflows/setup
+
+    - run: |
+        pnpm --filter "@announcing/components" run sync
+      if: inputs.target == 'components'
+      shell: bash
+
+    - run: |
+        pnpm --filter "@announcing/components"  --filter "@announcing/db" run build
+        pnpm --filter "@announcing/db" run genTestData
+      if: inputs.target == 'reader'
+      shell: bash
+
+    - run: |
+        pnpm --filter "@announcing/components"  --filter "@announcing/db" run build
+        echo "AUTH_SECRET=$(openssl rand -hex 32)" > packages/writer/.env.local
+        echo "PUBLIC_AUTH_CARDINALS=1" >> packages/writer/.env.local
+      if: inputs.target == 'writer'
+      shell: bash

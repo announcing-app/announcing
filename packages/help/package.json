@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "name": "@announcing/help",
+  "type": "module",
+  "scripts": {
+    "genWranglerJsonc": "jiti genWranglerJsonc.ts",
+    "dev": "vite dev --port 5175",
+    "dev:workers": "wrangler dev --ip 0.0.0.0 -c wrangler.local.jsonc -c ../notification/wrangler.local.jsonc --persist-to ../db-local",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "deploy": "wrangler deploy -c wrangler.remote.jsonc",
+    "deploy:preview": "wrangler versions upload -c wrangler.remote.jsonc"
+  },
+  "devDependencies": {
+    "@announcing/cloudflare-support": "workspace:*",
+    "@announcing/components": "workspace:*",
+    "@announcing/i18n": "workspace:*",
+    "@announcing/notification": "workspace:*",
+    "@sveltejs/adapter-static": "catalog:",
+    "@sveltejs/kit": "catalog:",
+    "@sveltejs/vite-plugin-svelte": "catalog:",
+    "svelte": "catalog:",
+    "svelte-check": "catalog:",
+    "vite": "catalog:",
+    "vitest": "catalog:",
+    "wrangler": "catalog:"
+  }
+}

@@ -59,5 +59,6 @@ catalog:
   workbox-routing: 7.3.0
   workbox-strategies: 7.3.0
   wrangler: 4.24.4
+  '@sveltejs/adapter-static': 3.0.8
 
 catalogMode: strict

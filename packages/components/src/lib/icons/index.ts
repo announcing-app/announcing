@@ -14,6 +14,7 @@ export { default as MaterialSymbolsNotificationsRounded } from './MaterialSymbol
 export { default as MaterialSymbolsPostAdd } from './MaterialSymbolsPostAdd.svelte';
 export { default as MaterialSymbolsSettingsOutline } from './MaterialSymbolsSettingsOutline.svelte';
 export { default as MdiExternalLink } from './MdiExternalLink.svelte';
+export { default as MdiGithub } from './MdiGithub.svelte';
 export { default as MdiReload } from './MdiReload.svelte';
 export { default as MdiThemeLightDark } from './MdiThemeLightDark.svelte';
 export { default as SolarStarBold } from './SolarStarBold.svelte';

@@ -2,6 +2,7 @@
   import '../app.scss';
 
   import { page } from '$app/state';
+  import { MdiGithub } from '@announcing/components/icons';
   import RootLayout from '@announcing/components/RootLayout.svelte';
   import { type Snippet } from 'svelte';
 
@@ -14,6 +15,10 @@
   let lang = $derived(page.url.pathname.split('/')[1] ?? '');
 </script>
 
+<svelte:head>
+  <title>Announcing Help</title>
+</svelte:head>
+
 <header>
   <a href={`/${lang}`} class="title">Announcing Help</a>
   <svelte:element this={lang === 'en' ? 'span' : 'a'} href="/en">English</svelte:element>
@@ -23,6 +28,10 @@
 <RootLayout>
   {@render children?.()}
 </RootLayout>
+
+<footer>
+  <a href="https://github.com/announcing-app/announcing" class="github"><MdiGithub /></a>
+</footer>
 
 <style lang="scss">
   header {
@@ -44,6 +53,14 @@
 
     span {
       font-weight: bold;
+    }
+  }
+
+  footer {
+    margin: auto 0 16px;
+    text-align: center;
+    .github {
+      font-size: 32px;
     }
   }
 </style>

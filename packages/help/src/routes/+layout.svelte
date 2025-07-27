@@ -1,4 +1,6 @@
 <script lang="ts">
+  import '../app.scss';
+
   import { page } from '$app/state';
   import RootLayout from '@announcing/components/RootLayout.svelte';
   import { type Snippet } from 'svelte';

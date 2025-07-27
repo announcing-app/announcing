@@ -1,0 +1,12 @@
+.top-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 32px 0;
+
+  .card {
+    width: 300px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}

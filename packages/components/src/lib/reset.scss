@@ -56,9 +56,10 @@ a.button {
 }
 
 a.link {
-  color: var(--color-accent);
+  color: var(--color-text-subtle);
   text-decoration: underline;
   text-underline-offset: 2px;
+  padding: 0 0.3em;
 }
 
 input:not([type='checkbox'], [type='radio']),

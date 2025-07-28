@@ -58,6 +58,7 @@
 
   footer {
     margin: auto 0 16px;
+    padding-top: 64px;
     text-align: center;
     .github {
       font-size: 32px;

@@ -17,15 +17,21 @@ main {
     flex-direction: column;
     gap: 4px;
     margin: 0 16px;
-    li::before {
-      content: '';
-      display: inline-block;
-      width: 0.4em;
-      height: 0.4em;
-      margin-right: 0.5em;
-      background-color: var(--color-text);
-      border-radius: 50%;
-      vertical-align: middle;
+
+    li {
+      position: relative;
+      padding-left: 1em;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.5em;
+        left: 0;
+        width: 0.4em;
+        height: 0.4em;
+        background-color: var(--color-text);
+        border-radius: 50%;
+      }
     }
   }
 

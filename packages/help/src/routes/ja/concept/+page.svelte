@@ -50,7 +50,6 @@
   ただし上記のSNSの特徴にメリットを感じない場合は、Announcingだけで十分かもしれません。
 </div>
 
-<!-- prettier-ignore -->
 <div class="text">
   Announcingはすべて無料で使えます。<br />
   将来的に寄付型モデルでの運用を目指しています。

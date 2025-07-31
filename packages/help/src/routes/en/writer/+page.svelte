@@ -1,5 +1,6 @@
 <h1>How to post announcements</h1>
 
+<hr />
 <h2>Sign in</h2>
 
 <div class="text">

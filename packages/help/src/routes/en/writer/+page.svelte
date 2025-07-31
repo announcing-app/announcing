@@ -1,37 +1,42 @@
-<h1>お知らせの書き方</h1>
+<h1>How to post announcements</h1>
 
-<h2>ログイン</h2>
+<h2>Sign in</h2>
 
 <div class="text">
-  <a class="link" href="https://announcing-writer.suzulabo.workers.dev//signin">こちら</a
-  >から投稿者サイトにログインします。
+  Sign in to the author site from <a
+    class="link"
+    href="https://announcing-writer.suzulabo.workers.dev//signin">here</a
+  >.
 </div>
 
 <div class="text info">
-  現在Googleアカウントのログインのみ対応していますが、ログイン方法は今後増やしていく予定です。
+  Currently, only Google accounts are supported, but we plan to add more login options in the
+  future.
 </div>
 
 <hr />
-<h2>チャンネルの作成</h2>
+<h2>Creating a channel</h2>
 
 <div class="text">
-  「チャンネルを作成」ボタンからチャンネルを作成します。<br />
-  チャンネルは一つのアカウントにつき5つまで作成できます。
+  Create a channel from the “Create Channel” button.<br />
+  You can create up to five channels per account.
 </div>
 
-<div class="text info">チャンネルのアイコンは128ピクセル以上の正方形が推奨です。</div>
+<div class="text info">We recommend using a square icon that is at least 128 pixels in size.</div>
 
 <hr />
-<h2>チャンネルの操作</h2>
+<h2>Channel Operations</h2>
 
-<div class="text">作成したチャンネルを選択すると、各種操作メニューが表示されます。</div>
+<div class="text">Select a channel to display various operation menus.</div>
 
 <hr />
-<h2>お知らせを書く</h2>
+<h2>Posting Announcements</h2>
 
 <div class="text">
-  「お知らせを書く」ボタンから書くことができます。<br />
-  見出し画像は1枚、その他の画像は4枚まで選択できます。<br />
-  日本語ではタイトルは約60字ほど、本文は約600文字ほど入力できます。
+  Click the “Create a new announcement” button to create new announcement.<br />
+  You can select one header image and up to four additional images.<br />
+  The title can be up to 200 characters, and the body can be up to 2,000 characters.
 </div>
-<div class="text info">画像は縦横1200ピクセル以下に調整されます</div>
+<div class="text info">
+  Images will be resized to 1,200 pixels or less in both width and height.
+</div>

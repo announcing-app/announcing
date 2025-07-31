@@ -1,83 +1,102 @@
-<h1>Announcing 利用規約</h1>
+<h1>Announcing Terms of Use</h1>
 
 <div class="text">
-  本サービスは、誰でも気軽に「お知らせ」を投稿・閲覧できる、シンプルでオープンなWebサービスです。<br
-  />
-  本サービスを利用することで、以下の内容に同意したものとみなします。
+  Announcing is a simple and open web service that allows anyone to easily post and view
+  announcements.<br />
+  By using this service, you are deemed to have agreed to the following terms.
 </div>
 
-<div class="text">＊ 本サービスは現在ベータ版です。</div>
+<div class="text">※ This service is currently in beta.</div>
 
 <hr />
-<h2>サービス内容</h2>
+<h2>Service Description</h2>
 <ul>
+  <li>Users who log in via SSO can create channels and post announcements.</li>
   <li>
-    お知らせの投稿者はSSOによるログインをすることで、チャンネルの作成とお知らせの投稿が可能です。
+    Each channel has a unique URL that can be shared with others to make the content viewable.
   </li>
-  <li>チャンネル毎にユニークなURLが作成され、それを共有することで誰でも閲覧が可能です。</li>
-  <li>チャンネルの情報やお知らせに、秘密情報を含めないでください。保護の仕組みはありません。</li>
+  <li>
+    Do not include any confidential information in your channel or announcements. There are no
+    protection mechanisms in place.
+  </li>
 </ul>
 
 <hr />
-<h2>お知らせについて</h2>
+<h2>About Announcements</h2>
 <ul>
-  <li>投稿できるのはテキストと画像です。</li>
-  <li>他人の権利を侵害しないように注意してください（例：著作権、プライバシー、名誉毀損など）。</li>
-  <li>閲覧者にとって過激または年齢制限が必要な内容はご遠慮ください。</li>
-  <li>明らかに不適切な投稿やチャンネルは、運営の判断で予告なく<b>削除されることがあります。</b></li>
+  <li>You can post text and images.</li>
+  <li>
+    Please ensure that your content does not infringe on the rights of others (e.g. copyright,
+    privacy, defamation).
+  </li>
+  <li>Avoid posting content that is excessively graphic or inappropriate for all age groups.</li>
+  <li>
+    Clearly inappropriate content or channels may be removed without notice at the discretion of the
+    administrators.
+  </li>
 </ul>
 
 <hr />
-<h2>禁止事項</h2>
+<h2>Prohibited Conduct</h2>
 <ul>
-  <li>法律に違反する投稿</li>
-  <li>他人になりすます行為</li>
-  <li>スパム、詐欺、誹謗中傷</li>
-  <li>サービスへの過度な負荷</li>
-  <li>その他、運営が不適切と判断する行為</li>
+  <li>Posting content that violates laws or regulations</li>
+  <li>Impersonating others</li>
+  <li>Spamming, fraud, or defamation</li>
+  <li>Excessive load on the service</li>
+  <li>Any other behavior deemed inappropriate by the administrators</li>
 </ul>
 
 <hr />
-<h2>利用地域と法令</h2>
+<h2>Jurisdictions and Legal Compliance</h2>
 <ul>
   <li>
-    本サービスは、世界中のどこからでもアクセス・利用可能です。特定の国や地域に限定していません。
+    This service is accessible and usable from anywhere in the world. We do not limit usage to
+    specific countries or regions.
   </li>
   <li>
-    そのため、サービスの利用に際しては、利用者自身の責任で、居住または利用する国・地域の法令を確認し、順守してください。
+    Users are responsible for complying with the laws and regulations of their own country or region
+    when using the service.
   </li>
   <li>
-    法的・倫理的な問題を発見した場合は、<a class="link" href="/ja/inqury">取り合わせ</a
-    >よりご報告ください。
+    If you notice any legal or ethical issues, please <a class="link" href="/en/inqury"
+      >contact us</a
+    > through the inquiry channels.
   </li>
 </ul>
 
 <div class="text info">
-  本サービスは無料かつオープンソースで提供されており、すべての利用者によって支えられています。<br />
-  法的または倫理的な懸念、規制への抵触や不備など、お気づきの場合は<a class="link" href="/ja/inqury"
-    >取り合わせ</a
-  >よりご報告ください。<br />
-  積極的なご協力をお願いいたします。
+  This service is provided free of charge and as open source. It is supported by its users.<br />
+  If you find any legal or regulatory concerns, or other issues, please let us know.<br />
+  We appreciate your active cooperation.
 </div>
 
 <hr />
-<h2>料金</h2>
+<h2>Fees</h2>
 <ul>
-  <li>本サービスはすべて無料で利用できます。</li>
+  <li>This service is completely free to use.</li>
 </ul>
 
 <hr />
-<h2>免責事項</h2>
+<h2>Disclaimer</h2>
 <ul>
-  <li>本サービスは現状有姿(As-Is)で提供されています。</li>
-  <li>投稿内容の正確性・完全性・合法性などについて、運営は一切の責任を負いません。</li>
-  <li>利用者間のトラブルや、投稿によって発生した損害についても、運営は責任を負いません。</li>
-  <li>また、予告なくサービスの内容変更、停止、終了することがあります。</li>
+  <li>This service is provided “as is”.</li>
+  <li>
+    The administrators make no guarantees regarding the accuracy, completeness, or legality of
+    posted content.
+  </li>
+  <li>
+    We are not responsible for any disputes between users or any damages resulting from the use of
+    this service.
+  </li>
+  <li>The service may be modified, suspended, or terminated at any time without prior notice.</li>
 </ul>
 
 <hr />
-<h2>利用規約の変更</h2>
+<h2>Changes to the Terms</h2>
 <ul>
-  <li>本規約は予告なく変更されることがあります。</li>
-  <li>変更後に本サービスの利用を継続した場合、変更に同意したものとみなされます。</li>
+  <li>These terms may be updated without prior notice.</li>
+  <li>
+    If you continue to use the service after the terms have changed, you are considered to have
+    accepted the updated terms.
+  </li>
 </ul>

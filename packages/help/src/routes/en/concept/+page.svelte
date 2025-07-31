@@ -1,57 +1,56 @@
 <div class="service-title">
   <span class="name">Announcing</span>
-  <span class="subtitle">〜 世界で一番退屈なWebサービス 〜</span>
+  <span class="subtitle">Probably the most boring web service in the world</span>
 </div>
 
-<h1>コンセプト</h1>
+<h1>Concept</h1>
 
 <div class="text">
-  AnnouncingはSNSのような感覚で、誰でも気軽にお知らせを発信できるWebサービスです。<br />
-  残念ながら以下のような機能はありません。
+  Announcing is a web service that lets anyone post announcements, similar to how social media
+  works.
+  <br />
+  Unfortunately, it doesn’t include the following features:
 </div>
 
 <ul>
-  <li>いいねボタン</li>
-  <li>リポスト、引用ポスト</li>
-  <li>リプライ(返信)</li>
-  <li>インプレッション計測</li>
+  <li>Like buttons</li>
+  <li>Reposts or quote posts</li>
+  <li>Replies</li>
+  <li>Impression tracking</li>
 </ul>
 
 <div class="text">
-  一晩悩んだ投稿でバズらせたり炎上させることはできません。<br />
-  いいねやインプレッションを、１日中チラチラ見ることもできません。<br />
-  ぜんぜん反応がなくてがっかりすることもできません。
+  You can’t go viral—or get canceled—after spending all night crafting the perfect post.
+  <br />
+  You also can’t keep checking likes or impressions every 10 minutes.<br />
+  And you won’t be disappointed by a total lack of reactions.
 </div>
 
 <hr />
-<h2>お知らせを書く読む</h2>
+<h2>Post and Read Announcements</h2>
 <div class="text">
-  チャンネルを作ったらそのURLを共有しましょう。<br />
-  例えばお店にQRコードを貼っておくといいでしょう。<br />
-  お知らせを読むのにアプリも会員登録も不要です。<br />
-  「フォローお願いします！」<br />
-  「ごめん、〇〇やってないんだよね」<br />
-  という定番トークは不要です。
+  Once you’ve created a channel, just share the URL.<br />
+  For example, you could print a QR code and post it in your store.<br />
+  No app or account is required to read announcements.<br />
+  No need for common exchanges like “Please follow me!” or “Sorry, I don’t use that app.”
 </div>
 
 <div class="text">
-  読む人は知っているチャンネルしか読めません。<br />
-  あなたの行動を監視し厳選した広告を織り交ぜたタイムラインは見られません。<br />
-  もちろんなにかに誘導しようとすることもありません。
+  You can only read channels you know.<br />
+  There’s no timeline tracking your behavior or blending in carefully targeted ads.<br />
+  And of course, you’re not going to be nudged in any direction.
 </div>
 
 <hr />
-<h2>Announcingの特徴</h2>
+<h2>Features</h2>
 <div class="text">
-  AnnouncingはSNSを置き換えるサービスではありません。<br />
-  SNSは情報を拡散し、反応をダイレクトに得られ、直接コミュニケーションを取ることもできる強力なツールです。<br
-  />
-  Announcingは、SNSが苦手な人たちをカバーする補助的なサービスです。<br />
-  ただし上記のSNSの特徴にメリットを感じない場合は、Announcingだけで十分かもしれません。
+  Announcing isn't a service that replaces social media.<br />
+  Social media is powerful—it lets you spread information, get feedback, and communicate.<br />
+  Announcing is a complement to social media for those who feel it doesn’t quite suit them.<br />
+  But if you don’t see value in those social features, Announcing might be enough on its own.
 </div>
 
-<!-- prettier-ignore -->
 <div class="text">
-  Announcingはすべて無料で使えます。<br />
-  将来的に寄付型モデルでの運用を目指しています。
+  Announcing is completely free to use.<br />
+  In the future, we hope to support the service through donations.
 </div>

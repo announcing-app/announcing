@@ -1,63 +1,74 @@
-<h1>Announcing プライバシーポリシー</h1>
+<h1>Announcing Privacy Policy</h1>
 
-<div class="text">本サービスは、可能な限り余計なデータを収集しない方針で運営しています。</div>
+<div class="text">
+  This service is operated with a policy of collecting as little data as possible.
+</div>
 
 <hr />
-<h2>最低限の情報収集</h2>
+<h2>Minimal Data Collection</h2>
 <ul>
   <li>
-    不正対策やトラブル対応のため、お知らせの投稿内容と送信元のIPアドレスを、Cloudflare
-    R2に1年間保存します。
+    To prevent abuse and handle issues, the content of announcements and the sender's IP address are
+    stored in Cloudflare R2 for one year.
   </li>
   <li>
-    SSOログイン時に受け取るユーザーIDやメールアドレスなどは、認証と不正対策のために必要な情報のみを保存します。
+    When logging in via SSO, only the information necessary for authentication and abuse prevention
+    (such as user ID and email address) is stored.
   </li>
-  <li>エラー監視のためSentryを利用しています。</li>
-  <li>利用状況把握のため、Cloudflare Workersの内部ログ機能を利用しています。</li>
-  <li>Google Analytics などの外部解析ツールは利用していません。</li>
-  <li>広告はないので、アドネットワークには接続されません。</li>
+  <li>Sentry is used for error tracking.</li>
+  <li>Cloudflare Workers' internal logging features are used to understand usage trends.</li>
+  <li>We do not use external analytics tools such as Google Analytics.</li>
+  <li>There are no ads, so no connections to ad networks occur.</li>
 </ul>
 
 <hr />
-<h2>個人情報の取り扱い</h2>
-<ul>
-  <li>IPアドレスやログイン情報は、法令に基づく場合を除き、第三者に提供することはありません。</li>
-</ul>
-
-<hr />
-<h2>データの保護と削除</h2>
-<ul>
-  <li>投稿データはCloudflare D1・R2に保存されます。</li>
-  <li>不適切な投稿は運営判断により削除されます。</li>
-  <li>削除要望・報告などは、通報ボタンおよびお問い合わせよりご連絡ください。</li>
-</ul>
-
-<hr />
-<h2>オープンソース</h2>
+<h2>Handling of Personal Information</h2>
 <ul>
   <li>
-    本サービスはオープンソースです。詳しい実装は<a
-      class="link"
-      href="https://github.com/announcing-app/announcing">ソースコード</a
-    >をご確認ください。
+    IP addresses and login information will not be shared with third parties unless required by law.
   </li>
 </ul>
 
 <hr />
-<h2>プライバシーポリシーの変更</h2>
+<h2>Data Protection and Deletion</h2>
 <ul>
-  <li>本プライバシーポリシーは予告なく変更されることがあります。</li>
-  <li>変更後に本サービスの利用を継続した場合、変更に同意したものとみなされます。</li>
+  <li>Posted data is stored in Cloudflare D1 and R2.</li>
+  <li>Inappropriate content may be deleted at the discretion of the administrators.</li>
+  <li>
+    If you wish to report or request deletion of content, please use the report button or contact us
+    through the inquiry page.
+  </li>
 </ul>
 
 <hr />
-<h2>地域ごとの法令への配慮について</h2>
+<h2>Open Source</h2>
+<ul>
+  <li>
+    This service is open source. Please refer to the
+    <a class="link" href="https://github.com/announcing-app/announcing">source code</a> for implementation
+    details.
+  </li>
+</ul>
+
+<hr />
+<h2>Changes to This Privacy Policy</h2>
+<ul>
+  <li>This privacy policy is subject to change without notice.</li>
+  <li>
+    Continued use of the service after any changes are made constitutes acceptance of the updated
+    policy.
+  </li>
+</ul>
+
+<hr />
+<h2>Compliance with Regional Regulations</h2>
 
 <div class="text info">
-  本サービスは、世界中の利用者に対して同一の仕様で提供されています。<br />
-  そのため、個人情報の取り扱いや通信の取り締まりなど、地域ごとの規制との整合性については、利用者自身の確認と判断が必要です。<br
+  This service is provided uniformly to users around the world.<br />
+  Therefore, users are responsible for confirming whether the service complies with the laws and regulations
+  of their country or region, particularly regarding data handling and communications monitoring.<br
   />
-  居住国や利用環境において本サービスの仕様やポリシーが法令に適合しない場合は、利用を控えるか、事前にご相談ください。<br
-  />
-  また、法的・倫理的な不備をご指摘いただける場合は、ぜひフィードバックをお寄せください。
+  If the service or this policy does not meet local legal requirements, please refrain from using the
+  service or contact us in advance.<br />
+  We also welcome feedback about legal or ethical concerns.
 </div>

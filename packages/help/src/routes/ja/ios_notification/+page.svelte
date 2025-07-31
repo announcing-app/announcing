@@ -7,11 +7,18 @@
   Appleが対応を行い次第、すぐに改善する予定です。
 </div>
 
-<h2>設定方法</h2>
+<hr />
+<h2>ホーム画面に追加</h2>
+
+<div class="text info">
+  Safariの操作方法です。その他のブラウザをご利用の方は、それぞれのブラウザのドキュメントを参照してください。
+</div>
 
 <img src="/assets/ios_notification/toolbar.jpeg" alt="toolbar" />
 
-<div class="text">チャンネルのページを開いた状態で、画面下メニューの中央のアイコンを押します。</div>
+<div class="text">
+  チャンネルのページを開いた状態で、画面下メニューの中央の共有アイコンを押します。
+</div>
 
 <hr />
 
@@ -22,17 +29,17 @@
 </div>
 
 <hr />
+<h2>設定画面を起動</h2>
 
-<img src="/assets/ios_notification/home_icon.jpeg" alt="add home" width="100px" />
+<img src="/assets/ios_notification/home_icon.jpeg" alt="home icon" width="100px" />
 
 <div class="text">ホーム画面に追加された上記のアイコンを押して、設定画面を起動します。</div>
 
-<hr />
-
 <div class="text">
-  チャンネルのIDを入力し、検索ボタンを押すとチャンネルが表示されます。<br />
+  右上の編集ボタンを押します。<br />
+  チャンネルのIDを入力し、追加ボタンを押すとチャンネルが表示されます。<br />
   IDはチャンネルページの「IDをコピー」ボタンからコピーできます。<br />
-  通知を受け取りたいチャンネルにチェックを入れて「通知を登録」ボタンを押せば登録完了です。
+  通知を受け取りたいチャンネルを追加して「更新」ボタンを押せば登録完了です。
 </div>
 
 <hr />

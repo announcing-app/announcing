@@ -1,27 +1,29 @@
-<h1>通知の許可</h1>
+<h1>Notification Settings</h1>
 
 <div class="text">
-  チャンネルの通知を設定するとき、初回に通知の許可に関するメッセージが表示されます。<br />
-  ここで拒否をしてしまった場合など、通知が許可されてないというメッセージが表示された場合は以下の手順で許可してください。
+  When setting up channel notifications, you'll see a message asking for notification permission the
+  first time.<br />
+  If you declined it or see a message indicating that notifications are not allowed, follow the steps
+  below to enable them.
 </div>
 
 <hr />
-<h2>iPhone/iPadの場合</h2>
+<h2>For iPhone/iPad</h2>
 
 <div class="text">
-  「設定」アプリを開き、「アプリ」→「Announcing」→「通知」と進み、「通知を許可」をオンにします。
+  Open the “Settings” app, go to “Apps” → "Announcing" → “Notifications” and turn on “Allow
+  Notifications”
 </div>
 
 <div class="text info">
-  iPhone/iPadではまずホーム画面への追加が必要です。<br />
-  詳しくは<a class="link" href="/ja/ios_notification">こちら</a>をご確認ください。<br />
+  For iPhone/iPad, you must first Announcing to your home screen.<br />
+  For more details, please check <a class="link" href="/en/ios_notification">here</a>.
 </div>
 
 <hr />
-<h2>iPhone/iPad以外の場合</h2>
+<h2>For other devices</h2>
 
 <div class="text">
-  ブラウザにより設定方法が異なります。<br />
-  <a class="link" href="https://gemini.google.com/share/0ee9d6c3f70e">こちら</a
-  >をご確認ください。<br />
+  Notification settings vary depending on the browser you're using.<br />
+  Please check <a class="link" href="https://g.co/gemini/share/332b2978065d">here</a>.
 </div>

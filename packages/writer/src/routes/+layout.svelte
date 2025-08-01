@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from '$app/state';
+  import { PUBLIC_HELP_PREFIX } from '$env/static/public';
   import {
     MaterialSymbolsHelpOutlineRounded,
     MaterialSymbolsHomeOutlineRounded,
@@ -31,7 +32,7 @@
       { type: 'settings' },
       {
         type: 'link',
-        href: `https://github.com/suzulabo/announcing.202312/tree/main/docs/help/index_${$locale}.md`,
+        href: `${PUBLIC_HELP_PREFIX}/${$locale}`,
         icon: MaterialSymbolsHelpOutlineRounded,
         label: $LL.help(),
       },

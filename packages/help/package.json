@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "genWranglerJsonc": "jiti genWranglerJsonc.ts",
-    "dev": "vite dev --port 5175",
+    "dev": "vite dev --port 5176",
     "dev:workers": "wrangler dev --ip 0.0.0.0 -c wrangler.local.jsonc -c ../notification/wrangler.local.jsonc --persist-to ../db-local",
     "build": "vite build",
     "preview": "vite preview",

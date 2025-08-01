@@ -19,8 +19,9 @@ Register the following JSON in an environment variable named VALUES_JSON.
   "PUBLIC_FIREBASE_VAPID_KEY": "xxxx",
   "PUBLIC_READER_SENTRY_DSN": "https://xxx@xxx.ingest.us.sentry.io/xxx",
   "PUBLIC_READER_ERROR_TEST": 1,
-  "PUBLIC_READER_PREFIX": "https://announcing-reader.suzulabo.workers.dev",
+  "PUBLIC_READER_PREFIX": "https://announcing.app",
   "PUBLIC_WRITER_SENTRY_DSN": "https://xxx@xxx.ingest.us.sentry.io/xxx",
+  "PUBLIC_HELP_PREFIX": "https://help.announcing.app",
   "PERFORMANCE_HOOK": null,
   "PUBLIC_AUTH_CARDINALS": 1,
   "PUBLIC_WRITER_ERROR_TEST": 1

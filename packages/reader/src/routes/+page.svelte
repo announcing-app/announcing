@@ -1,15 +1,12 @@
 <script>
+  import { PUBLIC_HELP_PREFIX } from '$env/static/public';
   import { LL, locale } from '@announcing/i18n';
 </script>
 
 <div class="container">
   <div class="subtitle">{$LL.subtitle()}</div>
   <div class="title">Announcing</div>
-  <a
-    class="button small"
-    href={`https://github.com/suzulabo/announcing.202312/tree/main/docs/concept_${$locale}.md`}
-    >{$LL.serviceDetails()}</a
-  >
+  <a class="button small" href={`${PUBLIC_HELP_PREFIX}/${$locale}`}>{$LL.serviceDetails()}</a>
 </div>
 
 <svelte:head>

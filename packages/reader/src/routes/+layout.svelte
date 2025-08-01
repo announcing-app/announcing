@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { PUBLIC_HELP_PREFIX } from '$env/static/public';
   import { isPWA } from '$lib/platform/platform';
   import {
     F7SquareFavorites,
@@ -40,7 +41,7 @@
       { type: 'settings' },
       {
         type: 'link',
-        href: `https://github.com/suzulabo/announcing.202312/tree/main/docs/help/index_${$locale}.md`,
+        href: `${PUBLIC_HELP_PREFIX}/${$locale}`,
         icon: MaterialSymbolsHelpOutlineRounded,
         label: $LL.help(),
       },

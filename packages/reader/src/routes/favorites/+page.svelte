@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { PUBLIC_HELP_PREFIX } from '$env/static/public';
   import { updateFavorites } from '$lib/favorites/favorites';
   import {
     fetchFavoriteChannels,
@@ -9,7 +10,7 @@
   import { isIOS } from '$lib/platform/platform';
   import Loading from '@announcing/components/Loading.svelte';
   import Spinner from '@announcing/components/Spinner.svelte';
-  import { LL } from '@announcing/i18n';
+  import { LL, locale } from '@announcing/i18n';
   import { onMount } from 'svelte';
   import { fade, scale } from 'svelte/transition';
   import type { PageData } from './$types';
@@ -103,8 +104,7 @@
     </div>
   {:else if isIOS()}
     <div in:fade|global class="desc ios">
-      <!-- TODO: set link -->
-      <a class="link" href="https://github.com" rel="noreferrer"
+      <a class="link" href={`${PUBLIC_HELP_PREFIX}/${$locale}/ios_notification`}
         >{$LL.unsupportedNotificationIOS()}</a
       >
     </div>

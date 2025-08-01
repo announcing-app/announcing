@@ -89,7 +89,7 @@ const en = {
   home: 'Home',
   writerTitle: 'Announcing for Writer',
   help: 'Help',
-  subtitle: 'The most boring web service',
+  subtitle: 'The most boring web service in the world',
   serviceDetails: 'Show Service Details',
 } satisfies BaseTranslation;
 

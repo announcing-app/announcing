@@ -339,8 +339,8 @@ export const messages = {
     ja: 'ヘルプ',
   },
   subtitle: {
-    en: 'The most boring web service',
-    ja: '一番退屈なWebサービス',
+    en: 'The most boring web service in the world',
+    ja: '世界で一番退屈なWebサービス',
   },
   serviceDetails: {
     en: 'Show Service Details',

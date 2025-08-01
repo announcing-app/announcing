@@ -354,7 +354,7 @@ type RootTranslation = {
 	 */
 	help: string
 	/**
-	 * T​h​e​ ​m​o​s​t​ ​b​o​r​i​n​g​ ​w​e​b​ ​s​e​r​v​i​c​e
+	 * T​h​e​ ​m​o​s​t​ ​b​o​r​i​n​g​ ​w​e​b​ ​s​e​r​v​i​c​e​ ​i​n​ ​t​h​e​ ​w​o​r​l​d
 	 */
 	subtitle: string
 	/**
@@ -703,7 +703,7 @@ export type TranslationFunctions = {
 	 */
 	help: () => LocalizedString
 	/**
-	 * The most boring web service
+	 * The most boring web service in the world
 	 */
 	subtitle: () => LocalizedString
 	/**

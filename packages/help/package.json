@@ -18,7 +18,7 @@
     "@announcing/components": "workspace:*",
     "@announcing/i18n": "workspace:*",
     "@announcing/notification": "workspace:*",
-    "@sveltejs/adapter-static": "catalog:",
+    "@sveltejs/adapter-cloudflare": "catalog:",
     "@sveltejs/kit": "catalog:",
     "@sveltejs/vite-plugin-svelte": "catalog:",
     "svelte": "catalog:",

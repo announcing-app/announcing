@@ -58,7 +58,7 @@
     when using the service.
   </li>
   <li>
-    If you notice any legal or ethical issues, please <a class="link" href="/en/inqury"
+    If you notice any legal or ethical issues, please <a class="link" href="/en/inquiry"
       >contact us</a
     > through the inquiry channels.
   </li>

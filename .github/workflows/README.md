@@ -5,6 +5,7 @@ Register the following JSON in an environment variable named VALUES_JSON.
   "WRITER_PROJECT_NAME": "announcing-writer",
   "READER_PROJECT_NAME": "announcing-reader",
   "NOTIFICATION_PROJECT_NAME": "announcing-notification",
+  "HELP_PROJECT_NAME": "announcing-help",
   "D1_ID": "xxx-xxx-xxx-xxx",
   "D1_NOTIFICATION_ID": "xxx-xxx-xxx-xxx",
   "R2_BUCKET_NAME": "announcing",

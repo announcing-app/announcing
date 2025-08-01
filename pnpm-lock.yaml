@@ -6,177 +6,27 @@ settings:
 
 catalogs:
   default:
-    '@auth/core':
-      specifier: 0.40.0
-      version: 0.40.0
-    '@auth/sveltekit':
-      specifier: 1.10.0
-      version: 1.10.0
-    '@cloudflare/workers-types':
-      specifier: 4.20250715.0
-      version: 4.20250715.0
-    '@eslint/js':
-      specifier: 9.30.0
-      version: 9.30.0
-    '@faker-js/faker':
-      specifier: 9.8.0
-      version: 9.8.0
-    '@playwright/test':
-      specifier: 1.53.1
-      version: 1.53.1
-    '@sentry/browser':
-      specifier: 9.33.0
-      version: 9.33.0
-    '@sentry/sveltekit':
-      specifier: 9.39.0
-      version: 9.39.0
     '@sveltejs/adapter-cloudflare':
       specifier: 7.0.4
       version: 7.0.4
-    '@sveltejs/adapter-static':
-      specifier: 3.0.8
-      version: 3.0.8
     '@sveltejs/kit':
       specifier: 2.24.0
       version: 2.24.0
-    '@sveltejs/package':
-      specifier: 2.3.12
-      version: 2.3.12
     '@sveltejs/vite-plugin-svelte':
       specifier: 5.1.0
       version: 5.1.0
-    '@types/autosize':
-      specifier: 4.0.3
-      version: 4.0.3
-    '@types/eslint-config-prettier':
-      specifier: 6.11.3
-      version: 6.11.3
-    '@types/image-blob-reduce':
-      specifier: 4.1.4
-      version: 4.1.4
-    '@types/js-cookie':
-      specifier: 3.0.6
-      version: 3.0.6
-    '@types/node':
-      specifier: 24.0.7
-      version: 24.0.7
-    autosize:
-      specifier: 6.0.1
-      version: 6.0.1
-    date-fns:
-      specifier: 4.1.0
-      version: 4.1.0
-    dotenv:
-      specifier: 17.0.0
-      version: 17.0.0
-    drizzle-kit:
-      specifier: 0.31.4
-      version: 0.31.4
-    drizzle-orm:
-      specifier: 0.44.2
-      version: 0.44.2
-    eslint:
-      specifier: 9.30.0
-      version: 9.30.0
-    eslint-config-prettier:
-      specifier: 10.1.5
-      version: 10.1.5
-    eslint-plugin-svelte:
-      specifier: 3.10.1
-      version: 3.10.1
-    fcm-cloudflare-workers:
-      specifier: 2.0.1
-      version: 2.0.1
-    firebase:
-      specifier: 11.9.1
-      version: 11.9.1
-    image-blob-reduce:
-      specifier: 4.1.0
-      version: 4.1.0
-    image-size:
-      specifier: 2.0.2
-      version: 2.0.2
-    jdenticon:
-      specifier: 3.3.0
-      version: 3.3.0
-    jiti:
-      specifier: 2.4.2
-      version: 2.4.2
-    js-cookie:
-      specifier: 3.0.5
-      version: 3.0.5
-    js-xxhash:
-      specifier: 4.0.0
-      version: 4.0.0
-    linkify-html:
-      specifier: 4.3.1
-      version: 4.3.1
-    lru-cache:
-      specifier: 11.1.0
-      version: 11.1.0
-    miniflare:
-      specifier: 4.20250712.0
-      version: 4.20250712.0
-    mockdate:
-      specifier: 3.0.5
-      version: 3.0.5
-    prettier:
-      specifier: 3.6.2
-      version: 3.6.2
-    prettier-plugin-organize-imports:
-      specifier: 4.1.0
-      version: 4.1.0
-    prettier-plugin-svelte:
-      specifier: 3.4.0
-      version: 3.4.0
-    publint:
-      specifier: 0.3.12
-      version: 0.3.12
-    sass:
-      specifier: 1.89.2
-      version: 1.89.2
     svelte:
       specifier: 5.34.9
       version: 5.34.9
     svelte-check:
       specifier: 4.2.2
       version: 4.2.2
-    svelte-eslint-parser:
-      specifier: 1.2.0
-      version: 1.2.0
-    the-new-css-reset:
-      specifier: 1.11.3
-      version: 1.11.3
-    tsx:
-      specifier: 4.20.3
-      version: 4.20.3
-    typesafe-i18n:
-      specifier: 5.26.2
-      version: 5.26.2
-    typescript:
-      specifier: 5.8.3
-      version: 5.8.3
-    typescript-eslint:
-      specifier: 8.35.0
-      version: 8.35.0
-    valibot:
-      specifier: 1.1.0
-      version: 1.1.0
     vite:
       specifier: 7.0.0
       version: 7.0.0
     vitest:
       specifier: 3.2.4
       version: 3.2.4
-    workbox-precaching:
-      specifier: 7.3.0
-      version: 7.3.0
-    workbox-routing:
-      specifier: 7.3.0
-      version: 7.3.0
-    workbox-strategies:
-      specifier: 7.3.0
-      version: 7.3.0
     wrangler:
       specifier: 4.24.4
       version: 4.24.4
@@ -376,9 +226,9 @@ importers:
       '@announcing/notification':
         specifier: workspace:*
         version: link:../notification
-      '@sveltejs/adapter-static':
+      '@sveltejs/adapter-cloudflare':
         specifier: 'catalog:'
-        version: 3.0.8(@sveltejs/kit@2.24.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))
+        version: 7.0.4(@sveltejs/kit@2.24.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(wrangler@4.24.4(@cloudflare/workers-types@4.20250715.0))
       '@sveltejs/kit':
         specifier: 'catalog:'
         version: 2.24.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0))
@@ -2369,11 +2219,6 @@ packages:
     peerDependencies:
       '@sveltejs/kit': ^2.0.0
       wrangler: ^4.0.0
-
-  '@sveltejs/adapter-static@3.0.8':
-    resolution: {integrity: sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==}
-    peerDependencies:
-      '@sveltejs/kit': ^2.0.0
 
   '@sveltejs/kit@2.24.0':
     resolution: {integrity: sha512-6aCsU6PwxB4CQBJEvLnOoSv8hoviZWDVTKDTzQoERG6vpIHeXJufVWQlyaOXrdSlqBiwknHm0nQT/S/Nn3518A==}
@@ -6177,10 +6022,6 @@ snapshots:
       '@sveltejs/kit': 2.24.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0))
       worktop: 0.8.0-next.18
       wrangler: 4.24.4(@cloudflare/workers-types@4.20250715.0)
-
-  '@sveltejs/adapter-static@3.0.8(@sveltejs/kit@2.24.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))':
-    dependencies:
-      '@sveltejs/kit': 2.24.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0))
 
   '@sveltejs/kit@2.24.0(@sveltejs/vite-plugin-svelte@5.1.0(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0)))(svelte@5.34.9)(vite@7.0.0(@types/node@24.0.14)(jiti@2.4.2)(sass@1.89.2)(terser@5.36.0)(tsx@4.20.3)(yaml@2.8.0))':
     dependencies:

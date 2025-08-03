@@ -346,4 +346,16 @@ export const messages = {
     en: 'Show Service Details',
     ja: 'サービスの詳細はこちら',
   },
+  errorApologize: {
+    en: 'We apologize for the inconvenience.\nIf the issue persists, please contact us through the Help section.',
+    ja: 'ご迷惑をおかけします。\n問題が解決しない場合はヘルプの問い合わせよりご連絡ください。',
+  },
+  announcementNotFound: {
+    en: 'Announcement not found.',
+    ja: 'お知らせが見つかりません',
+  },
+  pageNotFound: {
+    en: 'Page not found.',
+    ja: 'このページはありません',
+  },
 };

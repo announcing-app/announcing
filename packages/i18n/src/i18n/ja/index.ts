@@ -88,6 +88,10 @@ const ja = {
   help: 'ヘルプ',
   subtitle: '世界で一番退屈なWebサービス',
   serviceDetails: 'サービスの詳細はこちら',
+  errorApologize:
+    'ご迷惑をおかけします。\n問題が解決しない場合はヘルプの問い合わせよりご連絡ください。',
+  announcementNotFound: 'お知らせが見つかりません',
+  pageNotFound: 'このページはありません',
 } satisfies Translation;
 
 export default ja;

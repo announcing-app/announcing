@@ -5,18 +5,21 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ params, parent, fetch }) => {
   const { channelID, announcementID } = params;
 
+  const { channel } = await parent();
+  if (!channel) {
+    error(404, 'channel');
+  }
+
   const announcement = await fetchAnnouncement({ channelID, announcementID }, fetch);
 
   if (!announcement) {
     error(404);
   }
 
-  const parentData = await parent();
-
   return {
     channelID,
     announcementID,
-    channel: parentData.channel,
+    channel,
     announcement,
   };
 };

@@ -362,6 +362,19 @@ type RootTranslation = {
 	 * S​h​o​w​ ​S​e​r​v​i​c​e​ ​D​e​t​a​i​l​s
 	 */
 	serviceDetails: string
+	/**
+	 * W​e​ ​a​p​o​l​o​g​i​z​e​ ​f​o​r​ ​t​h​e​ ​i​n​c​o​n​v​e​n​i​e​n​c​e​.​
+​I​f​ ​t​h​e​ ​i​s​s​u​e​ ​p​e​r​s​i​s​t​s​,​ ​p​l​e​a​s​e​ ​c​o​n​t​a​c​t​ ​u​s​ ​t​h​r​o​u​g​h​ ​t​h​e​ ​H​e​l​p​ ​s​e​c​t​i​o​n​.
+	 */
+	errorApologize: string
+	/**
+	 * A​n​n​o​u​n​c​e​m​e​n​t​ ​n​o​t​ ​f​o​u​n​d​.
+	 */
+	announcementNotFound: string
+	/**
+	 * P​a​g​e​ ​n​o​t​ ​f​o​u​n​d​.
+	 */
+	pageNotFound: string
 }
 
 export type TranslationFunctions = {
@@ -712,6 +725,19 @@ icon
 	 * Show Service Details
 	 */
 	serviceDetails: () => LocalizedString
+	/**
+	 * We apologize for the inconvenience.
+If the issue persists, please contact us through the Help section.
+	 */
+	errorApologize: () => LocalizedString
+	/**
+	 * Announcement not found.
+	 */
+	announcementNotFound: () => LocalizedString
+	/**
+	 * Page not found.
+	 */
+	pageNotFound: () => LocalizedString
 }
 
 export type Formatters = {}

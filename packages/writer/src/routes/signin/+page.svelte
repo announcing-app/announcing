@@ -10,12 +10,14 @@
 <div class="buttons">
   {#if PUBLIC_AUTH_CARDINALS}
     <button
+      class="card"
       onclick={() => {
         void signIn('credentials', { id: 'test_user01' });
       }}>Credentials</button
     >
   {/if}
   <button
+    class="card"
     onclick={() => {
       void signIn('google');
     }}

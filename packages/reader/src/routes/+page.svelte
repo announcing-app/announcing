@@ -6,7 +6,7 @@
 <div class="container">
   <div class="subtitle">{$LL.subtitle()}</div>
   <div class="title">Announcing</div>
-  <a class="button small" href={`${PUBLIC_HELP_PREFIX}/${$locale}`}>{$LL.serviceDetails()}</a>
+  <a class="button" href={`${PUBLIC_HELP_PREFIX}/${$locale}`}>{$LL.serviceDetails()}</a>
 </div>
 
 <svelte:head>

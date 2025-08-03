@@ -58,4 +58,12 @@
   {@render children?.()}
 </RootLayout>
 
+<div class="bottom"></div>
+
 <Toolbar requestLocale={data.requestLocale} requestTheme={data.requestTheme} items={toolbarItems} />
+
+<style lang="scss">
+  .bottom {
+    height: 64px;
+  }
+</style>

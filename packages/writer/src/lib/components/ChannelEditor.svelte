@@ -112,8 +112,7 @@
           >
         {:else}
           <button
-            type="button"
-            class="icon-select small"
+            class="icon-select"
             onclick={() => {
               fileInput.open();
             }}>{$LL.selectIcon()}</button
@@ -180,6 +179,8 @@
           height: 64px;
           white-space: normal;
           font-size: 12px;
+          padding: 0;
+          white-space: pre-wrap;
           :global(:has(#settings[data-locale='ja'])) & {
             font-size: 10px;
           }

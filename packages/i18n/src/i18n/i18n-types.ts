@@ -101,7 +101,8 @@ type RootTranslation = {
 	 */
 	desc: string
 	/**
-	 * S​e​l​e​c​t​ ​i​c​o​n
+	 * S​e​l​e​c​t​
+​i​c​o​n
 	 */
 	selectIcon: string
 	/**
@@ -451,7 +452,8 @@ export type TranslationFunctions = {
 	 */
 	desc: () => LocalizedString
 	/**
-	 * Select icon
+	 * Select
+icon
 	 */
 	selectIcon: () => LocalizedString
 	/**

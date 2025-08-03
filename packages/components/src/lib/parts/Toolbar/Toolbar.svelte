@@ -77,7 +77,7 @@
 <div class="toolbar" class:hidden class:compact={toolbarSize === 'compact'}>
   {#each items as item, i (i)}
     {#if item.type === 'link'}
-      <a href={item.href}><item.icon /><span>{item.label}</span></a>
+      <a class="unstyled" href={item.href}><item.icon /><span>{item.label}</span></a>
     {:else if item.type === 'button'}
       <button class="unstyled" onclick={item.onclick}><item.icon /><span>{item.label}</span></button
       >

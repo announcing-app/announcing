@@ -115,8 +115,7 @@
         <img class="icon" alt="icon preview" src={resolveStoragePath(form.headerImage)} />
       </button>
       <button
-        type="button"
-        class="small filled"
+        class="small"
         onclick={() => {
           form.headerImage = undefined;
         }}>{$LL.remove()}</button

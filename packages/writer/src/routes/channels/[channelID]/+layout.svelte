@@ -12,7 +12,7 @@
   let { channel } = $derived(data);
 </script>
 
-<a class="channel-box" href={`/channels/${data.channel.channelID}`}>
+<a class="unstyled channel-box" href={`/channels/${data.channel.channelID}`}>
   <span class="name">{channel.name}</span>
   {#if channel.icon}
     <img class="icon" alt="channel icon" src={channel.icon} />

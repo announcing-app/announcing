@@ -81,7 +81,7 @@
     button.small {
       margin-left: auto;
       font-size: 13px;
-      padding: 4px 8px;
+      padding: 6px 8px;
       border-radius: 12px;
     }
   }

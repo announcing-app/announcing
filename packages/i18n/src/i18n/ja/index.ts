@@ -22,7 +22,7 @@ const ja = {
   signOut: 'ログアウト',
   channelName: 'チャンネル名',
   desc: '説明文',
-  selectIcon: 'アイコンを選択',
+  selectIcon: 'アイコンを\n選択',
   cancel: 'キャンセル',
   createAnnouncement: '新しいお知らせを書く',
   editAnnouncement: '過去のお知らせを編集・削除する',

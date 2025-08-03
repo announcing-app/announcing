@@ -165,6 +165,7 @@
   }
 
   .no-announcements {
+    margin-top: 32px;
     text-align: center;
   }
 

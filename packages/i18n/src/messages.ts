@@ -86,8 +86,8 @@ export const messages = {
     ja: '説明文',
   },
   selectIcon: {
-    en: 'Select icon',
-    ja: 'アイコンを選択',
+    en: 'Select\nicon',
+    ja: 'アイコンを\n選択',
   },
   cancel: {
     en: 'Cancel',

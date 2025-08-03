@@ -37,11 +37,10 @@
 <AnnouncementView announcement={data.announcement} />
 
 <div class="buttons">
-  <a class="button small" href={`/channels/${data.channelID}/announcements/${data.announcementID}`}
+  <a class="button" href={`/channels/${data.channelID}/announcements/${data.announcementID}`}
     >{$LL.edit()}</a
   >
   <button
-    class="small"
     onclick={() => {
       deleteModal.openModal();
     }}>{$LL.delete()}</button

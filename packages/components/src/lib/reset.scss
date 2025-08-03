@@ -25,9 +25,8 @@ button:not(.unstyled, .card),
 a.button {
   display: inline-block;
   border-radius: 16px;
-  padding: 16px 32px;
+  padding: 8px 16px;
   text-align: center;
-  font-size: 18px;
   white-space: nowrap;
   background-color: var(--color-accent);
   color: var(--color-accent-text);
@@ -40,8 +39,7 @@ a.button {
   }
 
   &.small {
-    padding: 8px 12px;
-    font-size: 15px;
+    font-size: 14px;
   }
 
   &:disabled {
@@ -55,7 +53,7 @@ a.button {
   }
 }
 
-a.link {
+a:not(.unstyled, .button, .card) {
   color: var(--color-text-subtle);
   text-decoration: underline;
   text-underline-offset: 2px;

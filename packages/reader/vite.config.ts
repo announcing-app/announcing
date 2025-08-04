@@ -13,7 +13,7 @@ export default defineConfig({
 
     // https://github.com/sveltejs/kit/issues/11416#issuecomment-2338417698
     rollupOptions: {
-      external: ['fsevents'],
+      external: ['fsevents', 'cloudflare:email'],
     },
   },
   server: {

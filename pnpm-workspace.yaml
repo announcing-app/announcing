@@ -60,5 +60,6 @@ catalog:
   workbox-strategies: 7.3.0
   wrangler: 4.24.4
   '@sveltejs/adapter-static': 3.0.8
+  mimetext: 3.0.27
 
 catalogMode: strict

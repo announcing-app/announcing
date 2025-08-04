@@ -45,6 +45,7 @@ const config: Unstable_RawConfig = {
   d1_databases: [d1],
   r2_buckets: [r2],
   services: [putTokenService],
+  send_email: [{ name: 'SEND_EMAIL' }],
 };
 
 await writeFile('wrangler.local.jsonc', JSON.stringify(config, undefined, 2));
@@ -55,6 +56,7 @@ const remoteConfig: Unstable_RawConfig = {
   d1_databases: [{ ...d1, database_id: remoteEnv.D1_ID }],
   r2_buckets: [{ ...r2, bucket_name: remoteEnv.R2_BUCKET_NAME }],
   services: [{ ...putTokenService, service: remoteEnv.NOTIFICATION_PROJECT_NAME }],
+  send_email: [{ name: 'SEND_EMAIL', destination_address: remoteEnv.EMAIL_ADDRESS }],
 };
 
 await writeFile('wrangler.remote.jsonc', JSON.stringify(remoteConfig, undefined, 2));

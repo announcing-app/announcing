@@ -11,6 +11,7 @@ declare global {
     interface Locals {
       db: ReturnType<typeof createDB>;
       putToken: (params: PutTokenParams) => Promise<void>;
+      sendEmail: (subject: string, body: string) => Promise<void>;
     }
     interface PageData {
       headerNotification?: {
@@ -25,6 +26,7 @@ declare global {
         D1: D1Database;
         R2: R2Bucket;
         WK_PUT_TOKEN: PutTokenEntrypoint;
+        SEND_EMAIL: SendEmail;
       };
     }
   }

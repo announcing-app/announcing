@@ -30,6 +30,12 @@ export const createLocalBindings = async () => {
 
   return {
     ...bindings,
+    SEND_EMAIL: {
+      send(message) {
+        console.log(message);
+        return Promise.resolve();
+      },
+    } satisfies SendEmail,
     dispose: () => {
       return mf.dispose();
     },

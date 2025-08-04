@@ -32,6 +32,7 @@
     "firebase": "catalog:",
     "js-cookie": "catalog:",
     "lru-cache": "catalog:",
+    "mimetext": "catalog:",
     "miniflare": "catalog:",
     "svelte": "catalog:",
     "svelte-check": "catalog:",

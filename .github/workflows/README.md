@@ -11,6 +11,7 @@ Register the following JSON in an environment variable named VALUES_JSON.
   "R2_BUCKET_NAME": "announcing",
   "R2_POST_LOG_BUCKET_NAME": "announcing-post-log",
   "KV_NOTIFICATION_ID": "xxxxxxxxxxx",
+  "EMAIL_ADDRESS": "info@announcing.app",
   "PUBLIC_FIREBASE_CONFIG_JSON": {
     "apiKey": "xxxx",
     "projectId": "xxx",

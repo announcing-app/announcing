@@ -1,4 +1,5 @@
 import { dev } from '$app/environment';
+import { EMAIL_ADDRESS } from '$env/static/private';
 import { PUBLIC_READER_SENTRY_DSN } from '$env/static/public';
 import { createDB } from '@announcing/db';
 import {
@@ -9,6 +10,8 @@ import {
 } from '@sentry/sveltekit';
 import { type Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
+import { EmailMessage } from 'cloudflare:email';
+import { createMimeMessage } from 'mimetext';
 
 let localBindings: App.Platform['env'];
 
@@ -24,6 +27,10 @@ const cloudflareHandle: Handle = ({ resolve, event }) => {
       putToken: async (params) => {
         await localBindings.WK_PUT_TOKEN.putToken(params);
       },
+      sendEmail: (subject, body) => {
+        console.log(`sendEmail: ${subject}\n${body}`);
+        return Promise.resolve();
+      },
     };
   } else {
     const env = event.platform?.env;
@@ -35,6 +42,18 @@ const cloudflareHandle: Handle = ({ resolve, event }) => {
       db: createDB(env),
       putToken: async (params) => {
         await env.WK_PUT_TOKEN.putToken(params);
+      },
+      sendEmail: (subject, body) => {
+        const msg = createMimeMessage();
+        msg.setSender({ addr: EMAIL_ADDRESS });
+        msg.setRecipient(EMAIL_ADDRESS);
+        msg.setSubject(subject);
+        msg.addMessage({
+          contentType: 'text/plain',
+          data: body,
+        });
+        const message = new EmailMessage(EMAIL_ADDRESS, EMAIL_ADDRESS, msg.asRaw());
+        return env.SEND_EMAIL.send(message);
       },
     };
   }

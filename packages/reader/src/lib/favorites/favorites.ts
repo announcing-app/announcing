@@ -52,7 +52,7 @@ export const addFavorite = (channel: GetChannelResult) => {
 };
 
 export const updateFavorites = (favorites: Favorites) => {
-  const striped = favorites.map((v) => {
+  const striped: Favorites = favorites.map((v) => {
     return {
       channelID: v.channelID,
       name: v.name,

@@ -2,6 +2,6 @@ import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request }) => {
   const data = await request.json();
-  console.dir(data, { depth: null });
+  console.log(JSON.stringify(data, undefined, 2));
   return Response.json({});
 };

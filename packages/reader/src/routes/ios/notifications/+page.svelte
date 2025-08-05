@@ -116,6 +116,9 @@
 </div>
 <div class="container">
   {#if editing}
+    {#if permission === 'denied'}
+      <div class="error">{$LL.notificationPermissionError()}</div>
+    {/if}
     <div class="input-box" in:fade>
       <input bind:value={searchChannelID} /><button
         onclick={searchClickHandler}
@@ -172,7 +175,7 @@
 
 <style lang="scss">
   .header {
-    margin: 16px 16px 0;
+    margin: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -200,13 +203,17 @@
     margin: 16px 16px 0;
     gap: 16px;
 
+    .error {
+      margin: 0 auto;
+    }
+
     .no-channels {
       margin: 32px auto 0;
       color: var(--color-text-subtle);
     }
 
     .input-box {
-      margin: 16px auto 0;
+      margin: 0 auto;
       display: flex;
       width: 100%;
       max-width: 400px;

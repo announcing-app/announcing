@@ -9,13 +9,13 @@ export type FavoriteChannel = Favorite &
     | { status: 'LOADED'; updatedAt: number; unread: number }
   );
 
-const countUnread = (channel: GetChannelResult, lastReadID: string) => {
+const countUnread = (channel: GetChannelResult, lastReadID: string | undefined) => {
   const ids = channel.announcementIDs;
   if (!ids || ids.length === 0) {
     return 0;
   }
 
-  const last = decodeAnnouncementID(lastReadID);
+  const last = lastReadID ? decodeAnnouncementID(lastReadID) : 0;
   return ids.reduce((p, c) => {
     if (decodeAnnouncementID(c) > last) {
       return p + 1;
@@ -26,6 +26,7 @@ const countUnread = (channel: GetChannelResult, lastReadID: string) => {
 
 export const fetchFavoriteChannels = (callback: (channels: FavoriteChannel[]) => void) => {
   const favorites = getFavorites();
+  console.log({ favorites });
   const map = new Map<string, FavoriteChannel>(
     favorites.map((v) => [v.channelID, { ...v, status: 'LOADING' }]),
   );

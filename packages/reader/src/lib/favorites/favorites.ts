@@ -12,7 +12,7 @@ const favoritesSchema = v.array(
     name: v.pipe(v.string(), v.nonEmpty()),
     icon: v.optional(v.pipe(v.string(), v.nonEmpty())),
     notification: v.optional(v.boolean()),
-    lastReadID: v.pipe(v.string()),
+    lastReadID: v.optional(v.pipe(v.string())),
   }),
 );
 

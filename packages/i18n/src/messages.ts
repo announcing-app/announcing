@@ -358,4 +358,20 @@ export const messages = {
     en: 'Page not found.',
     ja: 'このページはありません',
   },
+  report: {
+    en: 'Report',
+    ja: '報告',
+  },
+  reported: {
+    en: 'Reported',
+    ja: '報告済',
+  },
+  reportDesc: {
+    en: 'Please enter the details of your report and press the submit button.',
+    ja: '報告内容を入力して送信ボタンを押してください',
+  },
+  submit: {
+    en: 'Submit',
+    ja: '送信',
+  },
 };

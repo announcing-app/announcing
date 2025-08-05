@@ -95,6 +95,10 @@ const en = {
     'We apologize for the inconvenience.\nIf the issue persists, please contact us through the Help section.',
   announcementNotFound: 'Announcement not found.',
   pageNotFound: 'Page not found.',
+  report: 'Report',
+  reported: 'Reported',
+  reportDesc: 'Please enter the details of your report and press the submit button.',
+  submit: 'Submit',
 } satisfies BaseTranslation;
 
 export default en;

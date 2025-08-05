@@ -375,6 +375,22 @@ type RootTranslation = {
 	 * P​a​g​e​ ​n​o​t​ ​f​o​u​n​d​.
 	 */
 	pageNotFound: string
+	/**
+	 * R​e​p​o​r​t
+	 */
+	report: string
+	/**
+	 * R​e​p​o​r​t​e​d
+	 */
+	reported: string
+	/**
+	 * P​l​e​a​s​e​ ​e​n​t​e​r​ ​t​h​e​ ​d​e​t​a​i​l​s​ ​o​f​ ​y​o​u​r​ ​r​e​p​o​r​t​ ​a​n​d​ ​p​r​e​s​s​ ​t​h​e​ ​s​u​b​m​i​t​ ​b​u​t​t​o​n​.
+	 */
+	reportDesc: string
+	/**
+	 * S​u​b​m​i​t
+	 */
+	submit: string
 }
 
 export type TranslationFunctions = {
@@ -738,6 +754,22 @@ If the issue persists, please contact us through the Help section.
 	 * Page not found.
 	 */
 	pageNotFound: () => LocalizedString
+	/**
+	 * Report
+	 */
+	report: () => LocalizedString
+	/**
+	 * Reported
+	 */
+	reported: () => LocalizedString
+	/**
+	 * Please enter the details of your report and press the submit button.
+	 */
+	reportDesc: () => LocalizedString
+	/**
+	 * Submit
+	 */
+	submit: () => LocalizedString
 }
 
 export type Formatters = {}

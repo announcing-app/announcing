@@ -5,6 +5,8 @@ export const virtualCloudflareWorkers: PluginOption = {
   resolveId(id) {
     if (id === 'cloudflare:workers') {
       return '\0cloudflare:workers';
+    } else if (id === 'cloudflare:email') {
+      return '\0cloudflare:email';
     }
     return;
   },
@@ -15,6 +17,8 @@ export const virtualCloudflareWorkers: PluginOption = {
         'export class WorkflowStep {}',
         'export class WorkerEntrypoint {}',
       ].join('\n');
+    } else if (id === '\0cloudflare:email') {
+      return ['export class EmailMessage {}'].join('\n');
     }
     return;
   },

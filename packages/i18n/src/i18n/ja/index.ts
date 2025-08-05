@@ -92,6 +92,10 @@ const ja = {
     'ご迷惑をおかけします。\n問題が解決しない場合はヘルプの問い合わせよりご連絡ください。',
   announcementNotFound: 'お知らせが見つかりません',
   pageNotFound: 'このページはありません',
+  report: '報告',
+  reported: '報告済',
+  reportDesc: '報告内容を入力して送信ボタンを押してください',
+  submit: '送信',
 } satisfies Translation;
 
 export default ja;

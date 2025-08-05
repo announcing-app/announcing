@@ -12,6 +12,6 @@ export const postReport = async (data: {
   });
 
   if (!res.ok) {
-    throw new Error('Post Notification Error');
+    throw new Error('Post Report Error');
   }
 };

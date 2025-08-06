@@ -1,10 +1,8 @@
 <script lang="ts" generics="T extends string | number">
-  import { addSnapShot } from '$lib/utils/snapshotContext';
-
-  import { onMount, tick, type Snippet } from 'svelte';
-
-  import { toStyle } from '$lib/utils/toStyle';
   import { createResizeObserverHelper } from '$lib/utils/resizeObserverHelper';
+  import { addSnapShot } from '$lib/utils/snapshotContext';
+  import { toStyle } from '$lib/utils/toStyle';
+  import { onMount, tick, type Snippet } from 'svelte';
 
   interface Props {
     keys: T[];
@@ -134,16 +132,20 @@
       const data = { heightMap, scrollY: window.scrollY };
       return data;
     },
-    restore: (data: SnapShotData) => {
+    restore: (data) => {
       updateItemsRect();
-      heightMap = data.heightMap;
-      tick()
-        .then(() => {
-          window.scrollTo({ top: data.scrollY });
-        })
-        .catch(() => {
-          //
-        });
+      if ('heightMap' in data) {
+        heightMap = data.heightMap;
+      }
+      if ('scrollY' in data) {
+        tick()
+          .then(() => {
+            window.scrollTo({ top: data.scrollY });
+          })
+          .catch(() => {
+            //
+          });
+      }
     },
   });
 </script>

@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import { resolveAnnouncement } from '$lib/db/resolver';
 import type { GetAnnouncementResult } from '@announcing/db/types';
 import { LRUCache } from 'lru-cache';
@@ -24,7 +25,7 @@ export const fetchAnnouncement = (
   const url = `/api/channels/${channelID}/announcements/${announcementID}`;
 
   return (async () => {
-    const res = await fetch_(url, { cache: 'force-cache' });
+    const res = await fetch_(url, { ...(browser && { cache: 'force-cache' }) });
     if (res.ok) {
       const data = resolveAnnouncement(await res.json());
       cache.set(cacheKey, data);

@@ -51,8 +51,10 @@
         }
 
         if (permission === 'denied') {
-          notificationDenied = true;
-          return;
+          if (notificationChannels.length > 0) {
+            notificationDenied = true;
+            return;
+          }
         }
 
         if (permission === 'granted') {

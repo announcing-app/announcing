@@ -3,7 +3,7 @@
 <h2>ログイン</h2>
 
 <div class="text">
-  <a class="link" href="https://announcing-writer.suzulabo.workers.dev//signin">こちら</a
+  <a class="link" href="https://announcing-writer.suzulabo.workers.dev/signin">こちら</a
   >から投稿者サイトにログインします。
 </div>
 

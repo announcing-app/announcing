@@ -6,7 +6,7 @@
 <div class="text">
   Sign in to the author site from <a
     class="link"
-    href="https://announcing-writer.suzulabo.workers.dev//signin">here</a
+    href="https://announcing-writer.suzulabo.workers.dev/signin">here</a
   >.
 </div>
 

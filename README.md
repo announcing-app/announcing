@@ -3,8 +3,8 @@
 **Announcing** is a very simple web service for making announcements.  
 For details, please refer to the concept page:
 
-- [English](docs/concept_en.md)
-- [日本語](docs/concept_ja.md)
+- [English](https://announcing-help.suzulabo.workers.dev/en)
+- [日本語](https://announcing-help.suzulabo.workers.dev/ja)
 
 ## Demo Channel
 

@@ -67,7 +67,7 @@ export const fetchFavoriteChannels = (callback: (channels: FavoriteChannel[]) =>
           unread: countUnread(channel, favorite.lastReadID),
         });
       } else {
-        map.set(channelID, { ...favorite, status: 'NOT_FOUND' });
+        map.set(channelID, { ...favorite, notification: false, status: 'NOT_FOUND' });
       }
     } catch {
       map.set(channelID, { ...favorite, status: 'ERROR' });

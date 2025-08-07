@@ -58,6 +58,7 @@ export const updateFavorites = (favorites: Favorites) => {
       name: v.name,
       ...(v.icon && { icon: v.icon }),
       ...(v.notification && { notification: v.notification }),
+      ...(v.lastReadID && { lastReadID: v.lastReadID }),
     };
   });
   localStorage.setItem(STORAGE_KEY, JSON.stringify(striped));

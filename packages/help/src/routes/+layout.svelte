@@ -44,6 +44,7 @@
     .title {
       margin-right: auto;
       font-size: 18px;
+      text-decoration: none;
     }
 
     a,

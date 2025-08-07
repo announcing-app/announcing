@@ -23,7 +23,7 @@ const loadBlob = (name: string) => {
 };
 
 const genDate = (n: number) => {
-  return addDays('2026-02-01T00:11:22', n).getTime();
+  return addDays('2025-02-01T00:11:22', n).getTime();
 };
 
 const generate = async (userID: string, channelID: string, remote: boolean) => {

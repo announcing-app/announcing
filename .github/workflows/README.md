@@ -12,6 +12,9 @@ Register the following JSON in an environment variable named VALUES_JSON.
   "R2_POST_LOG_BUCKET_NAME": "announcing-post-log",
   "KV_NOTIFICATION_ID": "xxxxxxxxxxx",
   "EMAIL_ADDRESS": "info@announcing.app",
+  "SENTRY_ORG": "announcing",
+  "SENTRY_PROJECT_WRITER": "announcing-writer",
+  "SENTRY_PROJECT_READER": "announcing-reader",
   "PUBLIC_FIREBASE_CONFIG_JSON": {
     "apiKey": "xxxx",
     "projectId": "xxx",
@@ -19,13 +22,13 @@ Register the following JSON in an environment variable named VALUES_JSON.
     "appId": "1:1234:web:xxx"
   },
   "PUBLIC_FIREBASE_VAPID_KEY": "xxxx",
-  "PUBLIC_READER_SENTRY_DSN": "https://xxx@xxx.ingest.us.sentry.io/xxx",
-  "PUBLIC_READER_ERROR_TEST": 1,
   "PUBLIC_READER_PREFIX": "https://announcing.app",
-  "PUBLIC_WRITER_SENTRY_DSN": "https://xxx@xxx.ingest.us.sentry.io/xxx",
   "PUBLIC_HELP_PREFIX": "https://help.announcing.app",
-  "PERFORMANCE_HOOK": null,
+  "PUBLIC_READER_SENTRY_DSN": "https://xxx@xxx.ingest.us.sentry.io/xxx",
+  "PUBLIC_WRITER_SENTRY_DSN": "https://xxx@xxx.ingest.us.sentry.io/xxx",
+  "PERFORMANCE_HOOK": 1,
   "PUBLIC_AUTH_CARDINALS": 1,
-  "PUBLIC_WRITER_ERROR_TEST": 1
+  "PUBLIC_WRITER_ERROR_TEST": 1,
+  "PUBLIC_READER_ERROR_TEST": 1
 }
 ```

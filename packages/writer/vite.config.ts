@@ -4,11 +4,11 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 
 const sourceMapsUploadOptions = (() => {
-  const { SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN } = process.env;
+  const { SENTRY_ORG, SENTRY_PROJECT_WRITER, SENTRY_AUTH_TOKEN } = process.env;
 
-  if (SENTRY_ORG && SENTRY_PROJECT && SENTRY_AUTH_TOKEN) {
+  if (SENTRY_ORG && SENTRY_PROJECT_WRITER && SENTRY_AUTH_TOKEN) {
     console.log('Add sourceMapsUploadOptions');
-    return { org: SENTRY_ORG, project: SENTRY_PROJECT, authToken: SENTRY_AUTH_TOKEN };
+    return { org: SENTRY_ORG, project: SENTRY_PROJECT_WRITER, authToken: SENTRY_AUTH_TOKEN };
   }
   return;
 })();

@@ -21,6 +21,8 @@ jobs:
       - run: |
           pnpm -r run build
           pnpm -r run genWranglerJsonc
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
       - run: |
           pnpm -r run migrate:remote

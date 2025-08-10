@@ -4,9 +4,8 @@
 <h2>Sign in</h2>
 
 <div class="text">
-  Sign in to the author site from <a
-    class="link"
-    href="https://announcing-writer.suzulabo.workers.dev/signin">here</a
+  Sign in to the author site from <a class="link" href="https://writer.announcing.app/signin"
+    >here</a
   >.
 </div>
 

@@ -61,6 +61,6 @@ catalog:
   wrangler: 4.24.4
   '@sveltejs/adapter-static': 3.0.8
   mimetext: 3.0.27
-  '@google/gemini-cli': 0.1.22
+  '@google/gemini-cli': 0.3.2
 
 catalogMode: strict

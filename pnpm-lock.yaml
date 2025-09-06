@@ -22,8 +22,8 @@ catalogs:
       specifier: 9.8.0
       version: 9.8.0
     '@google/gemini-cli':
-      specifier: 0.3.2
-      version: 0.3.2
+      specifier: 0.3.3
+      version: 0.3.3
     '@playwright/test':
       specifier: 1.53.1
       version: 1.53.1
@@ -198,7 +198,7 @@ importers:
         version: 9.30.0
       '@google/gemini-cli':
         specifier: 'catalog:'
-        version: 0.3.2
+        version: 0.3.3
       '@types/eslint-config-prettier':
         specifier: 'catalog:'
         version: 6.11.3
@@ -1520,12 +1520,12 @@ packages:
   '@firebase/webchannel-wrapper@1.0.3':
     resolution: {integrity: sha512-2xCRM9q9FlzGZCdgDMJwc0gyUkWFtkosy7Xxr6sFgQwn+wMNIWd7xIvYNauU1r64B5L5rsGKy/n9TKJ0aAFeqQ==}
 
-  '@google/gemini-cli-core@0.3.2':
-    resolution: {integrity: sha512-GHjHgQP4YzBHH3meONQ+lOsKDdnbNgOmURf7g0PF80b60VN7DYnkrhz6rp9LTbypipNPauez1jGuiNUvTJzRNw==}
+  '@google/gemini-cli-core@0.3.3':
+    resolution: {integrity: sha512-puyftYPF2YvMdfxs+18aqen44eQ6h9WKW1a44ws8m27tZ7H6qDpoimF+EkvUvG0bW9Ha7Jq/XTHzBnddXngqWw==}
     engines: {node: '>=20'}
 
-  '@google/gemini-cli@0.3.2':
-    resolution: {integrity: sha512-mONWBWNn0DxmjLM6GTYIMoufvFcGnASbvx2Yr/qttJO+hBcWyAAs+XlYRxxWFvXeocer+0J26yD+tUB/hVWIqw==}
+  '@google/gemini-cli@0.3.3':
+    resolution: {integrity: sha512-7dTj5FnxO0g6mfA353rjEtvfnxkMOMlmviFP7Oni39gsCGF4qG1jna4uzARSNdwJopPNMIXuypGIQRGIKF6Y+g==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4614,8 +4614,8 @@ packages:
     resolution: {integrity: sha512-9qny7Z9DsQU8Ou39ERsPU4OZQlSTP47ShQzuKZ6PRXpYLtIFgl/DEBYEXKlvcEa+9tHVcK8CF81Y2V72qaZhWA==}
     engines: {node: '>=18'}
 
-  nwsapi@2.2.21:
-    resolution: {integrity: sha512-o6nIY3qwiSXl7/LuOU0Dmuctd34Yay0yeuZRLFmDPrrdHpXKFndPj3hM+YEPVHYC5fx2otBx4Ilc/gyYSAUaIA==}
+  nwsapi@2.2.22:
+    resolution: {integrity: sha512-ujSMe1OWVn55euT1ihwCI1ZcAaAU3nxUiDwfDQldc51ZXaB9m2AyOn6/jh1BLe2t/G8xd6uKG1UBF2aZJeg2SQ==}
 
   oauth4webapi@3.5.3:
     resolution: {integrity: sha512-2bnHosmBLAQpXNBLOvaJMyMkr4Yya5ohE5Q9jqyxiN+aa7GFCzvDN1RRRMrp0NkfqRR2MTaQNkcSUCCjILD9oQ==}
@@ -6643,7 +6643,7 @@ snapshots:
 
   '@firebase/webchannel-wrapper@1.0.3': {}
 
-  '@google/gemini-cli-core@0.3.2':
+  '@google/gemini-cli-core@0.3.3':
     dependencies:
       '@google/genai': 1.13.0(@modelcontextprotocol/sdk@1.17.5)
       '@lvce-editor/ripgrep': 1.6.0
@@ -6697,9 +6697,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@google/gemini-cli@0.3.2':
+  '@google/gemini-cli@0.3.3':
     dependencies:
-      '@google/gemini-cli-core': 0.3.2
+      '@google/gemini-cli-core': 0.3.3
       '@google/genai': 1.13.0(@modelcontextprotocol/sdk@1.17.5)
       '@iarna/toml': 2.2.5
       '@modelcontextprotocol/sdk': 1.17.5
@@ -9754,7 +9754,7 @@ snapshots:
       http-proxy-agent: 7.0.2
       https-proxy-agent: 7.0.6
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.21
+      nwsapi: 2.2.22
       parse5: 7.3.0
       rrweb-cssom: 0.7.1
       saxes: 6.0.0
@@ -10064,7 +10064,7 @@ snapshots:
       path-key: 4.0.0
       unicorn-magic: 0.3.0
 
-  nwsapi@2.2.21:
+  nwsapi@2.2.22:
     optional: true
 
   oauth4webapi@3.5.3: {}

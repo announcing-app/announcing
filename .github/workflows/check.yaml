@@ -24,7 +24,7 @@ jobs:
   playwright:
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.46.0-jammy
+      image: mcr.microsoft.com/playwright:v1.55.0-jammy
     timeout-minutes: 10
     permissions:
       contents: write

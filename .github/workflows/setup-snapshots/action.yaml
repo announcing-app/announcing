@@ -1,3 +1,5 @@
+name: setup-snapshots
+
 inputs:
   target:
     required: true

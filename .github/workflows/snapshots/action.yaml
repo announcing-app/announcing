@@ -1,3 +1,5 @@
+name: snapshots
+
 inputs:
   target:
     required: true

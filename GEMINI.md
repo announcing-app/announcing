@@ -34,6 +34,7 @@ The frontends are built with SvelteKit and deployed to Cloudflare Workers. The d
 ## Development Conventions
 
 - **Formatting:** The project uses Prettier for code formatting. Run `pnpm format` to check formatting and `pnpm format:fix` to fix it.
+  - **Agent Formatting:** When the agent modifies files, it will automatically run `pnpm format:fix` to ensure code style consistency.
 - **Linting:** The project uses ESLint for linting. Run `pnpm lint` to check for linting errors and `pnpm lint:fix` to fix them.
 - **Testing:** The project uses Vitest for unit tests. Run `pnpm -r run test` to run tests in all packages.
 - **Commits:** This project follows the Conventional Commits specification.

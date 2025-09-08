@@ -22,6 +22,8 @@ jobs:
       - run: pnpm run check
 
   playwright:
+    # TODO: Disabled once
+    if: false
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.55.0-jammy

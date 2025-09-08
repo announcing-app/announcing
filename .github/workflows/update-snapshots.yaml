@@ -4,12 +4,15 @@ on:
   workflow_dispatch:
     inputs:
       components:
+        description: 'Update snapshots for components'
         type: boolean
         default: false
       reader:
+        description: 'Update snapshots for reader'
         type: boolean
         default: false
       writer:
+        description: 'Update snapshots for writer'
         type: boolean
         default: false
 

@@ -1,7 +1,9 @@
 name: setup-snapshots
+description: 'Run build and data generation tasks required for Playwright tests.'
 
 inputs:
   target:
+    description: 'The target package (e.g., reader, writer)'
     required: true
 
 runs:

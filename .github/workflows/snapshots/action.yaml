@@ -1,7 +1,9 @@
 name: snapshots
+description: 'Update Playwright snapshots and push them to a new branch.'
 
 inputs:
   target:
+    description: 'The target package (e.g., reader, writer)'
     required: true
 
 runs:

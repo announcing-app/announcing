@@ -38,7 +38,7 @@ jobs:
 
           echo "targets=[$(IFS=,; echo "${A[*]}")]" >> "$GITHUB_OUTPUT"
 
-  update-snapshorts:
+  update-snapshots:
     needs: define-matrix
     runs-on: ubuntu-latest
     container:

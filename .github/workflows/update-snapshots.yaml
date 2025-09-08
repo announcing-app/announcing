@@ -1,6 +1,7 @@
 name: update-snapshots
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       components:

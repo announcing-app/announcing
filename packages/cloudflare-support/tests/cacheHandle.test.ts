@@ -1,3 +1,4 @@
+import type { RequestEvent } from '@sveltejs/kit';
 import { describe, expect, it, vi } from 'vitest';
 import { initCacheHandle } from '../src/cacheHandle/cacheHandle';
 import type { CacheHandleOptions } from '../src/cacheHandle/types';
@@ -6,21 +7,24 @@ const createMockCaches = () => {
   const store = new Map<string, Response>();
   return {
     default: {
+      // eslint-disable-next-line @typescript-eslint/require-await
       match: vi.fn(async (key: string) => store.get(key) || undefined),
+      // eslint-disable-next-line @typescript-eslint/require-await
       put: vi.fn(async (key: string, response: Response) => {
         store.set(key, response.clone());
       }),
+      // eslint-disable-next-line @typescript-eslint/require-await
       delete: vi.fn(async (key: string) => store.delete(key)),
     },
     store,
   };
 };
 
-const createMockEvent = (url: string) => ({
+const createMockEvent = (url: string): Pick<RequestEvent, 'url'> => ({
   url: new URL(url),
-  // ... other event properties can be mocked here if needed
 });
 
+// eslint-disable-next-line @typescript-eslint/require-await
 const createMockResolve = (body: string) => vi.fn(async () => new Response(body));
 
 const createRouteMatcher = (path: string, key: string, cacheControl: string) => ({
@@ -46,7 +50,7 @@ describe('initCacheHandle', () => {
     const route = createRouteMatcher('/cacheable', 'cache-key-1', 'public, max-age=3600');
 
     const options: CacheHandleOptions = {
-      caches: mockCaches as any,
+      caches: mockCaches as unknown as CacheStorage,
       waitUntil,
       routes: [route],
     };
@@ -54,7 +58,7 @@ describe('initCacheHandle', () => {
     const handle = initCacheHandle(options);
     const event = createMockEvent('https://example.com/cacheable');
 
-    const response = await handle({ event, resolve } as any);
+    const response = await handle({ event: event as RequestEvent, resolve });
     const body = await response.text();
 
     expect(body).toBe('fresh content');
@@ -67,9 +71,11 @@ describe('initCacheHandle', () => {
     // Verify it was actually cached
     const cached = await mockCaches.default.match('cache-key-1');
     expect(cached).toBeDefined();
-    const cachedBody = await cached!.text();
-    expect(cachedBody).toBe('fresh content');
-    expect(cached!.headers.get('Cache-Control')).toBe('public, max-age=3600');
+    if (cached) {
+      const cachedBody = await cached.text();
+      expect(cachedBody).toBe('fresh content');
+      expect(cached.headers.get('Cache-Control')).toBe('public, max-age=3600');
+    }
   });
 
   it('should return cached response on cache hit', async () => {
@@ -84,7 +90,7 @@ describe('initCacheHandle', () => {
     const route = createRouteMatcher('/cacheable', 'cache-key-2', 'public, max-age=3600');
 
     const options: CacheHandleOptions = {
-      caches: mockCaches as any,
+      caches: mockCaches as unknown as CacheStorage,
       waitUntil,
       routes: [route],
     };
@@ -92,7 +98,7 @@ describe('initCacheHandle', () => {
     const handle = initCacheHandle(options);
     const event = createMockEvent('https://example.com/cacheable');
 
-    const response = await handle({ event, resolve } as any);
+    const response = await handle({ event: event as RequestEvent, resolve });
     const body = await response.text();
 
     expect(body).toBe('cached content');
@@ -110,7 +116,7 @@ describe('initCacheHandle', () => {
     const route = createRouteMatcher('/cacheable', 'cache-key-3', 'no-cache');
 
     const options: CacheHandleOptions = {
-      caches: mockCaches as any,
+      caches: mockCaches as unknown as CacheStorage,
       waitUntil,
       routes: [route],
     };
@@ -118,7 +124,7 @@ describe('initCacheHandle', () => {
     const handle = initCacheHandle(options);
     const event = createMockEvent('https://example.com/not-cacheable');
 
-    const response = await handle({ event, resolve } as any);
+    const response = await handle({ event: event as RequestEvent, resolve });
     const body = await response.text();
 
     expect(body).toBe('fresh content');
@@ -136,7 +142,7 @@ describe('initCacheHandle', () => {
     const route2 = createRouteMatcher('/second', 'cache-key-second', 'private, max-age=300');
 
     const options: CacheHandleOptions = {
-      caches: mockCaches as any,
+      caches: mockCaches as unknown as CacheStorage,
       waitUntil,
       routes: [route1, route2],
     };
@@ -144,7 +150,7 @@ describe('initCacheHandle', () => {
     const handle = initCacheHandle(options);
     const event = createMockEvent('https://example.com/second');
 
-    const response = await handle({ event, resolve } as any);
+    const response = await handle({ event: event as RequestEvent, resolve });
     const body = await response.text();
 
     expect(body).toBe('fresh content from second route');
@@ -162,7 +168,7 @@ describe('initCacheHandle', () => {
     const routeGeneral = createRouteMatcher('/a/*', 'key-general', 'max-age=300');
 
     const options: CacheHandleOptions = {
-      caches: mockCaches as any,
+      caches: mockCaches as unknown as CacheStorage,
       waitUntil,
       routes: [routeSpecific, routeGeneral],
     };
@@ -170,7 +176,7 @@ describe('initCacheHandle', () => {
     const handle = initCacheHandle(options);
     const event = createMockEvent('https://example.com/a/b/hoge');
 
-    const response = await handle({ event, resolve } as any);
+    const response = await handle({ event: event as RequestEvent, resolve });
 
     expect(mockCaches.default.match).toHaveBeenCalledWith('key-specific');
     expect(response.headers.get('Cache-Control')).toBe('max-age=60');
@@ -184,7 +190,7 @@ describe('initCacheHandle', () => {
     const routeGeneral = createRouteMatcher('/a/*', 'key-general', 'max-age=300');
 
     const options: CacheHandleOptions = {
-      caches: mockCaches as any,
+      caches: mockCaches as unknown as CacheStorage,
       waitUntil,
       routes: [routeGeneral, routeSpecific],
     };
@@ -192,7 +198,7 @@ describe('initCacheHandle', () => {
     const handle = initCacheHandle(options);
     const event = createMockEvent('https://example.com/a/b/hoge');
 
-    const response = await handle({ event, resolve } as any);
+    const response = await handle({ event: event as RequestEvent, resolve });
 
     expect(mockCaches.default.match).toHaveBeenCalledWith('key-general');
     expect(response.headers.get('Cache-Control')).toBe('max-age=300');

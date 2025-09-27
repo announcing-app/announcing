@@ -28,6 +28,7 @@ export const initCacheHandle = (options: CacheHandleOptions): Handle => {
     }
 
     const response = await resolve(event);
+    response.headers.set('Cache-Control', cacheParams.cacheControl);
     waitUntil(cache.put(cacheParams.key, response));
     return response;
   };

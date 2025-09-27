@@ -25,8 +25,14 @@ const createMockResolve = (body: string) => vi.fn(async () => new Response(body)
 
 const createRouteMatcher = (path: string, key: string, cacheControl: string) => ({
   match: (url: URL) => {
-    if (url.pathname === path) {
-      return { key, cacheControl };
+    if (path.endsWith('*')) {
+      if (url.pathname.startsWith(path.slice(0, -1))) {
+        return { key, cacheControl };
+      }
+    } else {
+      if (url.pathname === path) {
+        return { key, cacheControl };
+      }
     }
     return undefined;
   },
@@ -146,5 +152,49 @@ describe('initCacheHandle', () => {
     expect(waitUntil).toHaveBeenCalledTimes(1);
     expect(mockCaches.default.put).toHaveBeenCalledWith('cache-key-second', expect.any(Response));
     expect(response.headers.get('Cache-Control')).toBe('private, max-age=300');
+  });
+
+  it('should prioritize the first matching route in the array (specific first)', async () => {
+    const mockCaches = createMockCaches();
+    const waitUntil = vi.fn();
+    const resolve = createMockResolve('fresh content');
+    const routeSpecific = createRouteMatcher('/a/b/*', 'key-specific', 'max-age=60');
+    const routeGeneral = createRouteMatcher('/a/*', 'key-general', 'max-age=300');
+
+    const options: CacheHandleOptions = {
+      caches: mockCaches as any,
+      waitUntil,
+      routes: [routeSpecific, routeGeneral],
+    };
+
+    const handle = initCacheHandle(options);
+    const event = createMockEvent('https://example.com/a/b/hoge');
+
+    const response = await handle({ event, resolve } as any);
+
+    expect(mockCaches.default.match).toHaveBeenCalledWith('key-specific');
+    expect(response.headers.get('Cache-Control')).toBe('max-age=60');
+  });
+
+  it('should prioritize the first matching route in the array (general first)', async () => {
+    const mockCaches = createMockCaches();
+    const waitUntil = vi.fn();
+    const resolve = createMockResolve('fresh content');
+    const routeSpecific = createRouteMatcher('/a/b/*', 'key-specific', 'max-age=60');
+    const routeGeneral = createRouteMatcher('/a/*', 'key-general', 'max-age=300');
+
+    const options: CacheHandleOptions = {
+      caches: mockCaches as any,
+      waitUntil,
+      routes: [routeGeneral, routeSpecific],
+    };
+
+    const handle = initCacheHandle(options);
+    const event = createMockEvent('https://example.com/a/b/hoge');
+
+    const response = await handle({ event, resolve } as any);
+
+    expect(mockCaches.default.match).toHaveBeenCalledWith('key-general');
+    expect(response.headers.get('Cache-Control')).toBe('max-age=300');
   });
 });

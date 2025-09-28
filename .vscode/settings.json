@@ -1,6 +1,6 @@
 {
   "typescript.tsdk": "./node_modules/typescript/lib",
-  "eslint.validate": ["svelte"],
+  "eslint.validate": ["javascript", "typescript", "svelte"],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"

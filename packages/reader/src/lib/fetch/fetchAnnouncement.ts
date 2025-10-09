@@ -27,7 +27,7 @@ export const fetchAnnouncement = (
   return (async () => {
     const res = await fetch_(url, { ...(browser && { cache: 'force-cache' }) });
     if (res.ok) {
-      const data = resolveAnnouncement(await res.json());
+      const data = resolveAnnouncement(channelID, announcementID, await res.json());
       cache.set(cacheKey, data);
       return data;
     }

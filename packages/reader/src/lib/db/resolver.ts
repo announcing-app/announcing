@@ -9,7 +9,7 @@ export const resolveStoragePath = (s: string) => {
 
 export const resolveChannel = (result: GetChannelResult): GetChannelResult => {
   if (result.icon) {
-    result.icon = resolveStoragePath(result.icon);
+    result.icon = `/media/channels/${result.channelID}/icon/${result.icon}`;
   }
 
   return result;

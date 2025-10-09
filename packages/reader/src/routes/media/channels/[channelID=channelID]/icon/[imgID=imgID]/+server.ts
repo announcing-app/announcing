@@ -22,7 +22,7 @@ const validIcon = async (
     return false;
   }
 
-  cache.put(cacheKey, null, 60 * 60);
+  cache.put(cacheKey, null, 3600);
 
   return true;
 };
@@ -41,7 +41,7 @@ const loadIcon = async (
 
   const icon = await getStorage(imgID);
   if (!icon) {
-    cache.put(cacheKey, null, 60, true);
+    cache.put(cacheKey, null, 86400, true);
     return error(404);
   }
 

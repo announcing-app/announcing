@@ -30,10 +30,9 @@ const validIcon = async (
 const loadIcon = async (
   cache: CacheHandler,
   getStorage: DBHandler['getStorage'],
-  channelID: string,
   imgID: string,
 ) => {
-  const cacheKey = `storage/channels/${channelID}/icon/${imgID}`;
+  const cacheKey = `storage/${imgID}`;
 
   const match = await cache.match(cacheKey);
   if (match) {
@@ -69,5 +68,5 @@ export const GET: RequestHandler = async ({ params, locals }) => {
     return error(404);
   }
 
-  return await loadIcon(locals.cache, locals.db.getStorage, channelID, imgID);
+  return await loadIcon(locals.cache, locals.db.getStorage, imgID);
 };

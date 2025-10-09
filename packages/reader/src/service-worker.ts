@@ -57,23 +57,14 @@ const log: (data: unknown) => Promise<void> = (() => {
   const cacheFirstStrategy = new CacheFirst();
   const networkFirstStrategy = new NetworkFirst();
 
-  const createRegexMatcher = (regex: RegExp) => {
-    return ({ url }: { url: URL }) => {
-      return regex.test(url.pathname);
-    };
-  };
+  // CacheFirst: /media/
+  registerRoute(({ url }) => url.pathname.startsWith('/media/'), cacheFirstStrategy);
 
   // CacheFirst: /api/channels/{channelID}/announcements/{announcementID}
-  registerRoute(
-    createRegexMatcher(/^\/api\/channels\/[^/]+\/announcements\/[^/]+$/),
-    cacheFirstStrategy,
-  );
-
-  // CacheFirst: /s/{objectKey}
-  registerRoute(createRegexMatcher(/^\/s\/[^/]+$/), cacheFirstStrategy);
+  registerRoute(/^\/api\/channels\/[^/]+\/announcements\/[^/]+$/, cacheFirstStrategy);
 
   // NetworkFirst: /api/channels/{channelID}
-  registerRoute(createRegexMatcher(/^\/api\/channels\/[^/]+$/), networkFirstStrategy);
+  registerRoute(/^\/api\/channels\/[^/]+$/, networkFirstStrategy);
 }
 
 sw.addEventListener('install', (event) => {

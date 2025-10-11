@@ -1,7 +1,9 @@
-import type { CacheStorage } from '@cloudflare/workers-types/experimental';
-import { Miniflare, Response as MiniflareResponse } from 'miniflare';
+import { CacheStorage as CFCacheStorage } from '@cloudflare/workers-types/experimental';
+import { Miniflare, Request as MiniflareRequest, Response as MiniflareResponse } from 'miniflare';
 import { resolve } from 'node:path';
 import { getWranglerLocalEnv } from './wranglerEnv';
+
+type MiniflareCache = Awaited<ReturnType<Miniflare['getCaches']>>['default'];
 
 const LOCAL_DIR = '../db-local/v3';
 
@@ -45,8 +47,8 @@ export const createLocalPlatform = async () => {
       open: () => {
         throw new Error('not implemented yet');
       },
-      default: new CacheWrapper(caches.default as unknown as Cache),
-    } as CacheStorage,
+      default: new CacheWrapper(caches.default),
+    } as CFCacheStorage,
     context: {
       waitUntil: () => {
         //
@@ -58,27 +60,38 @@ export const createLocalPlatform = async () => {
   };
 };
 
+/**
+  Since MiniflareCache has different type definitions than Cloudflare's Cache,
+  pass through the type check error locations using `as unknown as`.
+ */
 class CacheWrapper implements Cache {
   //
-  constructor(private cache: Cache) {}
+  constructor(private cache: MiniflareCache) {}
   delete(request: RequestInfo | URL, options?: CacheQueryOptions): Promise<boolean> {
-    return this.cache.delete(request, options);
+    return this.cache.delete(request as unknown as MiniflareRequest, options);
   }
   async match(
     request: RequestInfo | URL,
     options?: CacheQueryOptions,
   ): Promise<Response | undefined> {
-    const res = await this.cache.match(request, options);
+    const res = await this.cache.match(request as unknown as MiniflareRequest, options);
     if (!res) {
       return;
     }
-    return new Response(res.body, res);
+
+    /*
+      Miniflare's Response is incompatible with the standard Response, so it must be recreated.
+      Type checking also fails, so it passes through using `as unknown as`.
+    */
+    return new Response(res.body as unknown as BodyInit, res as unknown as Response);
   }
+
   put(request: RequestInfo | URL, response: Response): Promise<void> {
+    // https://github.com/cloudflare/workers-sdk/issues/4361
     const mfResponse = new MiniflareResponse(response.body, {
       status: response.status,
       headers: [...response.headers.entries()],
     });
-    return this.cache.put(request, mfResponse as unknown as Response);
+    return this.cache.put(request as unknown as MiniflareRequest, mfResponse);
   }
 }

@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./cloudflareTypes": {
+      "types": "./dist/cloudflareTypes.d.ts",
+      "import": "./dist/cloudflareTypes.js"
+    },
     "./wranglerEnv": {
       "types": "./dist/wranglerEnv.d.ts",
       "import": "./dist/wranglerEnv.js"

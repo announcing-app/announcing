@@ -1,6 +1,14 @@
-import { CacheStorage as CFCacheStorage } from '@cloudflare/workers-types/experimental';
 import { Miniflare, Request as MiniflareRequest, Response as MiniflareResponse } from 'miniflare';
 import { resolve } from 'node:path';
+import {
+  type CFCache,
+  type CFCacheStorage,
+  type CFD1Database,
+  type CFKVNamespace,
+  type CFR2Bucket,
+  type CFRequestInfo,
+  type CFResponse,
+} from './cloudflareTypes';
 import { getWranglerLocalEnv } from './wranglerEnv';
 
 type MiniflareCache = Awaited<ReturnType<Miniflare['getCaches']>>['default'];
@@ -24,11 +32,11 @@ export const createLocalPlatform = async () => {
   });
 
   const bindings = await mf.getBindings<{
-    D1: D1Database;
-    D1_NOTIFICATION: D1Database;
-    R2: R2Bucket;
-    R2_POST_LOG: R2Bucket;
-    KV_NOTIFICATION: KVNamespace;
+    D1: CFD1Database;
+    D1_NOTIFICATION: CFD1Database;
+    R2: CFR2Bucket;
+    R2_POST_LOG: CFR2Bucket;
+    KV_NOTIFICATION: CFKVNamespace;
   }>();
 
   const caches = await mf.getCaches();
@@ -44,7 +52,7 @@ export const createLocalPlatform = async () => {
       } satisfies SendEmail,
     },
     caches: {
-      open: () => {
+      open: (): Promise<CFCache> => {
         throw new Error('not implemented yet');
       },
       default: new CacheWrapper(caches.default),
@@ -64,16 +72,16 @@ export const createLocalPlatform = async () => {
   Since MiniflareCache has different type definitions than Cloudflare's Cache,
   pass through the type check error locations using `as unknown as`.
  */
-class CacheWrapper implements Cache {
+class CacheWrapper implements CFCache {
   //
   constructor(private cache: MiniflareCache) {}
-  delete(request: RequestInfo | URL, options?: CacheQueryOptions): Promise<boolean> {
+  delete(request: CFRequestInfo | URL, options?: CacheQueryOptions): Promise<boolean> {
     return this.cache.delete(request as unknown as MiniflareRequest, options);
   }
   async match(
-    request: RequestInfo | URL,
+    request: CFRequestInfo | URL,
     options?: CacheQueryOptions,
-  ): Promise<Response | undefined> {
+  ): Promise<CFResponse | undefined> {
     const res = await this.cache.match(request as unknown as MiniflareRequest, options);
     if (!res) {
       return;
@@ -83,10 +91,13 @@ class CacheWrapper implements Cache {
       Miniflare's Response is incompatible with the standard Response, so it must be recreated.
       Type checking also fails, so it passes through using `as unknown as`.
     */
-    return new Response(res.body as unknown as BodyInit, res as unknown as Response);
+    return new Response(
+      res.body as unknown as BodyInit,
+      res as unknown as Response,
+    ) as unknown as CFResponse;
   }
 
-  put(request: RequestInfo | URL, response: Response): Promise<void> {
+  put(request: CFRequestInfo | URL, response: CFResponse): Promise<void> {
     // https://github.com/cloudflare/workers-sdk/issues/4361
     const mfResponse = new MiniflareResponse(response.body, {
       status: response.status,

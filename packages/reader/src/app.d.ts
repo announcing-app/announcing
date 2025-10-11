@@ -3,7 +3,6 @@
 import type { CacheHandler } from '$lib/platform/cache';
 import type { createDB } from '@announcing/db';
 import type { PutTokenEntrypoint, PutTokenParams } from '@announcing/notification';
-import type { CacheStorage } from '@cloudflare/workers-types';
 
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
@@ -26,14 +25,14 @@ declare global {
     }
     interface Platform {
       env: {
-        D1: D1Database;
-        R2: R2Bucket;
+        D1: CFD1Database;
+        R2: CFR2Bucket;
         WK_PUT_TOKEN: PutTokenEntrypoint;
-        SEND_EMAIL: SendEmail;
+        SEND_EMAIL: CFSendEmail;
       };
-      caches: CacheStorage;
+      caches: CFCacheStorage;
       context: {
-        waitUntil: (promise: Promise<unknown>) => void;
+        waitUntil: CFWaitUtil;
       };
     }
   }

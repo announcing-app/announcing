@@ -2,6 +2,7 @@
 
 import type { CacheHandler } from '$lib/platform/cache';
 import type {
+  CFCaches,
   CFD1Database,
   CFR2Bucket,
   CFSendEmail,
@@ -36,9 +37,7 @@ declare global {
         WK_PUT_TOKEN: PutTokenEntrypoint;
         SEND_EMAIL: CFSendEmail;
       };
-      caches: {
-        default: Cache;
-      };
+      caches: CFCaches;
       context: {
         waitUntil: CFWaitUntil;
       };

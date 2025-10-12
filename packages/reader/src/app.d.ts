@@ -1,6 +1,12 @@
 /// <reference types="@sveltejs/kit" />
 
 import type { CacheHandler } from '$lib/platform/cache';
+import type {
+  CFD1Database,
+  CFR2Bucket,
+  CFSendEmail,
+  CFWaitUntil,
+} from '@announcing/cloudflare-support/cloudflareTypes';
 import type { createDB } from '@announcing/db';
 import type { PutTokenEntrypoint, PutTokenParams } from '@announcing/notification';
 
@@ -30,9 +36,11 @@ declare global {
         WK_PUT_TOKEN: PutTokenEntrypoint;
         SEND_EMAIL: CFSendEmail;
       };
-      caches: CFCacheStorage;
+      caches: {
+        default: Cache;
+      };
       context: {
-        waitUntil: CFWaitUtil;
+        waitUntil: CFWaitUntil;
       };
     }
   }

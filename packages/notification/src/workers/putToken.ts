@@ -1,3 +1,4 @@
+import type { D1Database } from '@cloudflare/workers-types';
 import { WorkerEntrypoint } from 'cloudflare:workers';
 import { createDB } from '../db/db';
 

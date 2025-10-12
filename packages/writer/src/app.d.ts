@@ -1,7 +1,9 @@
 /// <reference types="@sveltejs/kit" />
 
+import type { CFWaitUntil } from '@announcing/cloudflare-support/cloudflareTypes';
 import type { createDB } from '@announcing/db';
 import type { SendNotificationEntrypoint, SendNotificationParams } from '@announcing/notification';
+import type { D1Database, R2Bucket } from '@cloudflare/workers-types';
 import type { AnnouncementPreviewData } from './routes/channels/[channelID]/announcements/[[announcementID]]/preview/+page.svelte';
 import type { StorePostLogParams, StorePostLogWorkflow } from './workers/storePostLogWorkflow';
 
@@ -14,7 +16,7 @@ declare global {
       db: ReturnType<typeof createDB>;
       storePostLog: (params: StorePostLogParams) => Promise<void>;
       sendNotification: (params: SendNotificationParams) => Promise<void>;
-      waitUntil: (promise: Promise<unknown>) => void;
+      waitUntil: CFWaitUntil;
     }
     // interface PageData {}
     interface PageState {
@@ -29,7 +31,7 @@ declare global {
         SEND_NOTIFICATION: SendNotificationEntrypoint;
       };
       context: {
-        waitUntil: (promise: Promise<unknown>) => void;
+        waitUntil: CFWaitUntil;
       };
     }
   }

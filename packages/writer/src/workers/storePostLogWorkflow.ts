@@ -1,3 +1,4 @@
+import type { R2Bucket } from '@cloudflare/workers-types';
 import { WorkflowEntrypoint, WorkflowStep, type WorkflowEvent } from 'cloudflare:workers';
 
 export type StorePostLogParams = {

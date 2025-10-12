@@ -3,14 +3,14 @@ import {
   createWorkerEntrypointLocal,
   createWorkflowLocal,
 } from '@announcing/cloudflare-support/local';
-import { createLocalBindings as createLocalBindings_ } from '@announcing/cloudflare-support/localBindings';
+import { createLocalPlatform } from '@announcing/cloudflare-support/localPlatform';
 import { SendNotificationEntrypoint } from '@announcing/notification';
 import { StorePostLogWorkflowEntrypoint } from '../../workers/storePostLogWorkflow';
 
-export const createLocalBindings = async () => {
-  const bindings = await createLocalBindings_();
+export const localPlatform = await (async () => {
+  const platform = await createLocalPlatform();
 
-  const WF_STORE_POST_LOG = createWorkflowLocal(StorePostLogWorkflowEntrypoint, bindings);
+  const WF_STORE_POST_LOG = createWorkflowLocal(StorePostLogWorkflowEntrypoint, platform.env);
 
   const SEND_NOTIFICATION = ((): SendNotificationEntrypoint => {
     if (!GOOGLE_CREDENTIALS_BASE64) {
@@ -22,10 +22,15 @@ export const createLocalBindings = async () => {
     }
 
     return createWorkerEntrypointLocal(SendNotificationEntrypoint, {
-      ...bindings,
+      ...platform.env,
       GOOGLE_CREDENTIALS_BASE64,
     });
   })();
 
-  return { ...bindings, WF_STORE_POST_LOG, SEND_NOTIFICATION };
-};
+  const env = { ...platform.env, WF_STORE_POST_LOG, SEND_NOTIFICATION };
+
+  return {
+    ...platform,
+    env,
+  };
+})();

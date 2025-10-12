@@ -1,6 +1,6 @@
+import type { D1Database, KVNamespace, R2Bucket, SendEmail } from '@cloudflare/workers-types';
 import { Miniflare, Request as MiniflareRequest, Response as MiniflareResponse } from 'miniflare';
 import { resolve } from 'node:path';
-import { type CFD1Database, type CFKVNamespace, type CFR2Bucket } from './cloudflareTypes';
 import { getWranglerLocalEnv } from './wranglerEnv';
 
 type MiniflareCache = Awaited<ReturnType<Miniflare['getCaches']>>['default'];
@@ -24,11 +24,11 @@ export const createLocalPlatform = async () => {
   });
 
   const bindings = await mf.getBindings<{
-    D1: CFD1Database;
-    D1_NOTIFICATION: CFD1Database;
-    R2: CFR2Bucket;
-    R2_POST_LOG: CFR2Bucket;
-    KV_NOTIFICATION: CFKVNamespace;
+    D1: D1Database;
+    D1_NOTIFICATION: D1Database;
+    R2: R2Bucket;
+    R2_POST_LOG: R2Bucket;
+    KV_NOTIFICATION: KVNamespace;
   }>();
 
   const caches = await mf.getCaches();

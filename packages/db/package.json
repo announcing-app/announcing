@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@announcing/cloudflare-support": "workspace:*",
+    "@cloudflare/workers-types": "catalog:",
     "@faker-js/faker": "catalog:",
     "date-fns": "catalog:",
     "drizzle-kit": "catalog:",

@@ -21,6 +21,7 @@
     "@announcing/db": "workspace:*",
     "@announcing/i18n": "workspace:*",
     "@announcing/notification": "workspace:*",
+    "@cloudflare/workers-types": "catalog:",
     "@playwright/test": "catalog:",
     "@sentry/browser": "catalog:",
     "@sentry/sveltekit": "catalog:",

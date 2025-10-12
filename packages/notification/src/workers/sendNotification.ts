@@ -1,4 +1,4 @@
-import type { KVNamespace as KVNamespace_ } from '@cloudflare/workers-types';
+import type { D1Database, KVNamespace } from '@cloudflare/workers-types';
 import { WorkerEntrypoint } from 'cloudflare:workers';
 import { FCM, FcmOptions, type EnhancedFcmMessage } from 'fcm-cloudflare-workers';
 import { createDB } from '../db/db';
@@ -19,7 +19,7 @@ export class SendNotificationEntrypoint extends WorkerEntrypoint<{
       serviceAccount: JSON.parse(
         Buffer.from(this.env.GOOGLE_CREDENTIALS_BASE64, 'base64').toString('utf8'),
       ),
-      kvStore: this.env.KV_NOTIFICATION as KVNamespace_,
+      kvStore: this.env.KV_NOTIFICATION,
       kvCacheKey: 'fcm_access_token',
     });
 

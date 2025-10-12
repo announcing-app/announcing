@@ -25,12 +25,6 @@ const performanceHandle: Handle = async ({ event, resolve }) => {
   return response;
 };
 
-let localBindings: App.Platform['env'];
-
-if (dev) {
-  localBindings = await (await import('$lib/local/localBinding')).createLocalBindings();
-}
-
 const authorizationHandle: Handle = async ({ resolve, event }) => {
   if (!event.url.pathname.startsWith('/signin')) {
     const session = await event.locals.auth();
@@ -47,22 +41,27 @@ const authorizationHandle: Handle = async ({ resolve, event }) => {
   return resolve(event);
 };
 
-const cloudflareHandle: Handle = ({ resolve, event }) => {
+const cloudflareHandle: Handle = await (async () => {
   if (dev) {
-    event.locals = {
-      ...event.locals,
-      db: createDB(localBindings),
-      storePostLog: async (params) => {
-        await localBindings.WF_STORE_POST_LOG.create({ params });
-      },
-      sendNotification: async (params) => {
-        await localBindings.SEND_NOTIFICATION.sendNotification(params);
-      },
-      waitUntil: () => {
-        //
-      },
+    const platform = (await import('$lib/local/localPlatform')).localPlatform;
+    return ({ resolve, event }) => {
+      event.locals = {
+        ...event.locals,
+        db: createDB(platform.env),
+        storePostLog: async (params) => {
+          await platform.env.WF_STORE_POST_LOG.create({ params });
+        },
+        sendNotification: async (params) => {
+          await platform.env.SEND_NOTIFICATION.sendNotification(params);
+        },
+        waitUntil: platform.context.waitUntil,
+      };
+
+      return resolve(event);
     };
-  } else {
+  }
+
+  return ({ resolve, event }) => {
     const env = event.platform?.env;
     if (!env) {
       throw new Error('Missing platform.env');
@@ -85,9 +84,10 @@ const cloudflareHandle: Handle = ({ resolve, event }) => {
         context.waitUntil(promise);
       },
     };
-  }
-  return resolve(event);
-};
+
+    return resolve(event);
+  };
+})();
 
 const handlers = [];
 if (PERFORMANCE_HOOK) {

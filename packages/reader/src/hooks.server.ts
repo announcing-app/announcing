@@ -35,8 +35,6 @@ const cloudflareHandle: Handle = await (async () => {
         ),
       };
 
-      event.platform = platform;
-
       return resolve(event);
     };
   }

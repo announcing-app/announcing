@@ -1,4 +1,4 @@
-import type { CFD1Database, CFR2Bucket } from '@announcing/cloudflare-support/cloudflareTypes';
+import { D1Database, R2Bucket } from '@cloudflare/workers-types';
 import { drizzle, DrizzleD1Database } from 'drizzle-orm/d1';
 import { addAnnouncement } from './announcement/addAnnouncement';
 import { getAnnouncement } from './announcement/getAnnouncement';
@@ -13,31 +13,10 @@ import { getStorage } from './storage/getStorage';
 
 export type DBContext = {
   db: DrizzleD1Database;
-  r2: CFR2Bucket;
+  r2: R2Bucket;
 };
 
-type DB = {
-  createChannel: (params: Parameters<typeof createChannel>[1]) => ReturnType<typeof createChannel>;
-  updateChannel: (params: Parameters<typeof updateChannel>[1]) => ReturnType<typeof updateChannel>;
-  deleteChannel: (params: Parameters<typeof deleteChannel>[1]) => ReturnType<typeof deleteChannel>;
-  getChannel: (params: Parameters<typeof getChannel>[1]) => ReturnType<typeof getChannel>;
-  getChannels: (params: Parameters<typeof getChannels>[1]) => ReturnType<typeof getChannels>;
-  addAnnouncement: (
-    params: Parameters<typeof addAnnouncement>[1],
-  ) => ReturnType<typeof addAnnouncement>;
-  updateAnnouncement: (
-    params: Parameters<typeof updateAnnouncement>[1],
-  ) => ReturnType<typeof updateAnnouncement>;
-  removeAnnouncement: (
-    params: Parameters<typeof removeAnnouncement>[1],
-  ) => ReturnType<typeof removeAnnouncement>;
-  getAnnouncement: (
-    params: Parameters<typeof getAnnouncement>[1],
-  ) => ReturnType<typeof getAnnouncement>;
-  getStorage: (params: Parameters<typeof getStorage>[1]) => ReturnType<typeof getStorage>;
-};
-
-export const createDB = ({ D1, R2 }: { D1: CFD1Database; R2: CFR2Bucket }): DB => {
+export const createDB = ({ D1, R2 }: { D1: D1Database; R2: R2Bucket }) => {
   const ctx: DBContext = {
     db: drizzle(D1),
     r2: R2,
